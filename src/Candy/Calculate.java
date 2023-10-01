@@ -1,2 +1,5 @@
-package Candy;public interface Calculate {
+package Candy;
+
+public interface Calculate {
+    double func(double[] n);
 }

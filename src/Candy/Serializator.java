@@ -1,20 +1,21 @@
-import Candy.Menu;
+package Candy;
+
 import java.io.*;
+import java.util.ArrayList;
 
 public class Serializator {
-    public void serialization(Menu menu) throws IOException {
+    public static void serialization(ArrayList menu) throws IOException {
         try(FileOutputStream fileOutputStream = new FileOutputStream("Menu");
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)){
             objectOutputStream.writeObject(menu);
-            System.out.println("Данные записаны в файл");
         } catch (IOException e) {
             System.out.println("Ошибка");
         }
     }
-    public Menu deserialization()  throws IOException, ClassNotFoundException {
+    public static ArrayList deserialization()  throws IOException, ClassNotFoundException {
         try(FileInputStream fileInputStream = new FileInputStream("Menu");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)){
-            return     (Menu) objectInputStream.readObject();
+            return     (ArrayList) objectInputStream.readObject();
         }
     }
 }
