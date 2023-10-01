@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Sweet extends All implements Serializable {
     static ArrayList<String> SweetName = new ArrayList<>();
     static ArrayList<Double> SweetWeight = new ArrayList<>();
@@ -39,6 +41,7 @@ public class Sweet extends All implements Serializable {
 
     @Override
     public double choose() {
+        Scanner sc = new Scanner(System.in);
         int operation = 0;
         int amount = 0;
         double allWeihgt = 0;

@@ -5,7 +5,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Candy {
-    static Scanner sc = new Scanner(System.in);
     static double[] weightt = new double[4];
     static All biscuit = new Biscuit();
     static All chocolate = new Chocolate();
@@ -13,6 +12,7 @@ public class Candy {
     static All sweet = new Sweet();
 
     public void makeGift() {
+        Scanner sc = new Scanner(System.in);
         int operation = 0;
 
         System.out.println("Использовать старое меню?\n 1)Да\n 2)Нет");
@@ -59,6 +59,7 @@ public class Candy {
         }
     }
     public  void count() {
+        Scanner sc = new Scanner(System.in);
         Calculate result = ((n) -> {
             double w1 = 0;
             for (int i = 0; i < 4; i++)

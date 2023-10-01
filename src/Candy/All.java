@@ -1,14 +1,12 @@
 package Candy;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public abstract class All {
     protected String name;
     protected double weight;
-    static Scanner sc = new Scanner(System.in);
     public abstract void addGift(int i);
     public abstract double choose();
     public abstract void view();
@@ -17,6 +15,7 @@ public abstract class All {
     public abstract void serializationCandy() throws IOException;
     public abstract void deserializationCandy() throws IOException, ClassNotFoundException;
     public void add() {
+        Scanner sc = new Scanner(System.in);
         System.out.print("Введите название: ");
         try {
             this.name = sc.nextLine();

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Marshmallow extends All implements Serializable {
     static ArrayList<String> marshmallowName = new ArrayList<>();
@@ -40,6 +41,7 @@ public class Marshmallow extends All implements Serializable {
 
     @Override
     public double choose() {
+        Scanner sc = new Scanner(System.in);
         int operation = 0;
         int amount = 0;
         double allWeihgt = 0;
