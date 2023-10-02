@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2affbbc3-b31c-4fe9-ba55-293853708f7b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/All.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/All.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Biscuit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Biscuit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Candy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Candy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Chocolate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Chocolate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Marshmallow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Marshmallow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Serializator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Serializator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Sweet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Sweet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,14 +94,43 @@
       <option name="project" value="LOCAL" />
       <updated>1696182742569</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary=".">
+      <created>1696183590623</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696183590623</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="." />
     <option name="LAST_COMMIT_MESSAGE" value="." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Candy/All.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -6,54 +6,51 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Sweet extends All implements Serializable {
-    static ArrayList<String> SweetName = new ArrayList<>();
-    static ArrayList<Double> SweetWeight = new ArrayList<>();
-    static ArrayList<String> SweetGift = new ArrayList<>();
+public class Sweet extends All implements Serializable {    static ArrayList<All> marshmallow = new ArrayList<>();
+    static ArrayList<All> sweet = new ArrayList<>();
+    static ArrayList<String> sweetGift = new ArrayList<>();
 
     @Override
-    public void addCandy() {
-        SweetName.add(name);
-        SweetWeight.add(weight);
+    public boolean view(ArrayList<All> all) {
+        int i = 1;
+        System.out.println("\n___Конфеты___: ");
+        for (All alls: all)
+            if(alls instanceof Sweet) {
+                System.out.println((i) + ") " + alls.getName() + " вес: " + alls.getWeight());
+                sweet.add(alls);
+                i++;
+            }
+        if( i == 1) {
+            System.out.println("Конфет нет");
+            return false;
+        }
+        else return true;
     }
     @Override
-    public void addGift(int i){
+    public void addGift(int i, All all){
         boolean t = true;
-        for (int u = 0; u < SweetGift.size(); u++)
-            if(SweetGift.get(u) == SweetName.get(i-1))
+        for (int u = 0; u < sweetGift.size(); u++)
+            if(sweetGift.get(u).equals(all))
                 t =false;
         if(t == true)
-        SweetGift.add(SweetName.get(i-1));
+            sweetGift.add(all.getName());
     }
-
     @Override
-    public void view() {
-        System.out.println("\n___Конфеты____: ");
-             for (int i = 0; i < SweetName.size(); i++)
-                 System.out.println((i + 1) + ") " + SweetName.get(i) + " вес: " + SweetWeight.get(i));
-    }
     public void viewGift(){
-        System.out.println("\n___Конфеты____: ");
-        for (int i = 0; i < SweetGift.size(); i++)
-            System.out.println((i + 1) + ") " + SweetGift.get(i));
+        System.out.println("\n___Конфеты___: ");
+        for (int i = 0; i < sweetGift.size(); i++)
+            System.out.println((i + 1) + ") " + sweetGift.get(i));
     }
 
-
     @Override
-    public double choose() {
+    public double choose(ArrayList<All> all) {
         Scanner sc = new Scanner(System.in);
-        int operation = 0;
-        int amount = 0;
+        int operation;
+        int amount;
         double allWeihgt = 0;
-
-        if(SweetWeight.size() == 0 )
-            System.out.println("Конфет нет");
-        else {
-
+        boolean t = view(all);
+        if (t) {
             while (true) {
-                System.out.print("Выберите конфеты");
-                view();
-
                 System.out.print("Номер конфет: ");
                 while (true) {
                     try {
@@ -66,6 +63,7 @@ public class Sweet extends All implements Serializable {
                 }
 
                 System.out.println("Укажите количество: ");
+
                 while (true) {
                     try {
                         amount = sc.nextInt();
@@ -75,8 +73,10 @@ public class Sweet extends All implements Serializable {
                         sc.next();
                     }
                 }
-                this.addGift(operation);
-                allWeihgt += (amount * SweetWeight.get(operation - 1));
+
+                addGift(operation, sweet.get(operation - 1));
+
+                allWeihgt += (amount * sweet.get(operation - 1).getWeight());
 
                 System.out.println("Продолжить?\n 1)Да\n 2)Нет");
 
@@ -93,15 +93,5 @@ public class Sweet extends All implements Serializable {
             }
         }
         return 0;
-    }
-    @Override
-    public void serializationCandy() throws IOException {
-        Serializator.serialization(SweetWeight);
-        Serializator.serialization(SweetName);
-    }
-    @Override
-    public  void deserializationCandy() throws IOException, ClassNotFoundException {
-        SweetName = Serializator.deserialization();
-        SweetWeight = Serializator.deserialization();
     }
 }

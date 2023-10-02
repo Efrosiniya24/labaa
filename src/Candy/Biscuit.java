@@ -7,30 +7,33 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Biscuit extends All implements Serializable {
-    static ArrayList<String> biscuitsName = new ArrayList<>();
-    static ArrayList<Double> biscuitsWeight = new ArrayList<>();
-    static ArrayList<String> biscuitsGift = new ArrayList<>();
+      static ArrayList<All> biscuit = new ArrayList<>();
+      static ArrayList<String> biscuitsGift = new ArrayList<>();
 
     @Override
-    public void addCandy() {
-        biscuitsName.add(name);
-        biscuitsWeight.add(weight);
+    public boolean view(ArrayList<All> all) {
+       int i = 1;
+        for (All alls: all)
+           if(alls instanceof Biscuit) {
+               System.out.println((i) + ") " + alls.getName() + " вес: " + alls.getWeight());
+               biscuit.add(alls);
+               i++;
+           }
+        if( i == 1) {
+            System.out.println("Печенья нет");
+            return false;
+        }
+        else return true;
     }
 
     @Override
-    public void view() {
-        System.out.println("\n___Печенье___: ");
-            for (int i = 0; i < biscuitsName.size(); i++)
-                   System.out.println((i + 1) + ") " + biscuitsName.get(i) + " вес: " + biscuitsWeight.get(i));
-    }
-    @Override
-    public void addGift(int i){
+    public void addGift(int i, All all){
         boolean t = true;
         for (int u = 0; u < biscuitsGift.size(); u++)
-            if(biscuitsGift.get(u).equals(biscuitsName.get(i-1)))
+            if(biscuitsGift.get(u).equals(all))
                 t =false;
         if(t == true)
-            biscuitsGift.add(biscuitsName.get(i-1));
+            biscuitsGift.add(all.getName());
     }
     @Override
     public void viewGift(){
@@ -40,17 +43,13 @@ public class Biscuit extends All implements Serializable {
     }
 
     @Override
-    public double choose() {
+    public double choose(ArrayList<All> all) {
         Scanner sc = new Scanner(System.in);
-        int operation = 0;
-        int amount = 0;
+        int operation;
+        int amount;
         double allWeihgt = 0;
-
-        if (biscuitsName.size() == 0)
-            System.out.println("Печенья нет");
-        else {
-            System.out.print("\nВыберите печенье ");
-            view();
+        boolean t = view(all);
+        if (t) {
             while (true) {
                 System.out.print("Номер печенья: ");
                 while (true) {
@@ -75,9 +74,9 @@ public class Biscuit extends All implements Serializable {
                     }
                 }
 
-                this.addGift(operation);
+                addGift(operation, biscuit.get(operation - 1));
 
-                allWeihgt += (amount * biscuitsWeight.get(operation - 1));
+                allWeihgt += (amount * biscuit.get(operation - 1).getWeight());
 
                 System.out.println("Продолжить?\n 1)Да\n 2)Нет");
 
@@ -95,17 +94,6 @@ public class Biscuit extends All implements Serializable {
         }
         return 0;
     }
-    @Override
-    public  void deserializationCandy() throws IOException, ClassNotFoundException {
-        biscuitsName = Serializator.deserialization();
-        biscuitsWeight = Serializator.deserialization();
-    }
-    @Override
-    public void serializationCandy() throws IOException {
-        Serializator.serialization(biscuitsName);
-        Serializator.serialization(biscuitsWeight);
-    }
-
 }
 
 

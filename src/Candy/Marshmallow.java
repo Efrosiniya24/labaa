@@ -6,33 +6,36 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Marshmallow extends All implements Serializable {
-    static ArrayList<String> marshmallowName = new ArrayList<>();
-    static ArrayList<Double> marshmallowWeight = new ArrayList<>();
+public class Marshmallow extends All implements Serializable {    static ArrayList<All> chocolate = new ArrayList<>();
+    static ArrayList<All> marshmallow = new ArrayList<>();
     static ArrayList<String> marshmallowGift = new ArrayList<>();
 
     @Override
-    public void addCandy() {
-        marshmallowName.add(name);
-        marshmallowWeight.add(weight);
-    }
-
-    @Override
-    public void view() {
+    public boolean view(ArrayList<All> all) {
+        int i = 1;
         System.out.println("\n___Зефир___: ");
-            for (int i = 0; i < marshmallowName.size(); i++)
-              System.out.println((i + 1) + ") " + marshmallowName.get(i) + " вес: " + marshmallowWeight.get(i));
+        for (All alls: all)
+            if(alls instanceof Marshmallow) {
+                System.out.println((i) + ") " + alls.getName() + " вес: " + alls.getWeight());
+                chocolate.add(alls);
+                i++;
+            }
+        if( i == 1) {
+            System.out.println("Зефира нет");
+            return false;
+        }
+        else return true;
     }
     @Override
-    public void addGift(int i){
+    public void addGift(int i, All all){
         boolean t = true;
         for (int u = 0; u < marshmallowGift.size(); u++)
-            if(marshmallowGift.get(u) == marshmallowName.get(i-1))
+            if(marshmallowGift.get(u).equals(all))
                 t =false;
         if(t == true)
-            marshmallowGift.add(marshmallowName.get(i-1));
+            marshmallowGift.add(all.getName());
     }
-
+    @Override
     public void viewGift(){
         System.out.println("\n___Зефир___: ");
         for (int i = 0; i < marshmallowGift.size(); i++)
@@ -40,20 +43,14 @@ public class Marshmallow extends All implements Serializable {
     }
 
     @Override
-    public double choose() {
+    public double choose(ArrayList<All> all) {
         Scanner sc = new Scanner(System.in);
-        int operation = 0;
-        int amount = 0;
+        int operation;
+        int amount;
         double allWeihgt = 0;
-
-        if(marshmallowWeight.size() == 0 )
-            System.out.println("Зефира нет");
-        else {
-
-
+        boolean t = view(all);
+        if (t) {
             while (true) {
-                System.out.print("Выберите зефир:");
-                view();
                 System.out.print("Номер зефира: ");
                 while (true) {
                     try {
@@ -64,7 +61,9 @@ public class Marshmallow extends All implements Serializable {
                         sc.next();
                     }
                 }
+
                 System.out.println("Укажите количество: ");
+
                 while (true) {
                     try {
                         amount = sc.nextInt();
@@ -74,8 +73,10 @@ public class Marshmallow extends All implements Serializable {
                         sc.next();
                     }
                 }
-                this.addGift(operation);
-                allWeihgt += (amount * marshmallowWeight.get(operation - 1));
+
+                addGift(operation, marshmallow.get(operation - 1));
+
+                allWeihgt += (amount * marshmallow.get(operation - 1).getWeight());
 
                 System.out.println("Продолжить?\n 1)Да\n 2)Нет");
 
@@ -92,15 +93,5 @@ public class Marshmallow extends All implements Serializable {
             }
         }
         return 0;
-    }
-    @Override
-    public void serializationCandy() throws IOException {
-        Serializator.serialization(marshmallowName);
-        Serializator.serialization(marshmallowWeight);
-    }
-    @Override
-    public  void deserializationCandy() throws IOException, ClassNotFoundException {
-        marshmallowName = Serializator.deserialization();
-        marshmallowWeight = Serializator.deserialization();
     }
 }

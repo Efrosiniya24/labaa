@@ -1,19 +1,23 @@
 package Candy;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Candy {
     static double[] weightt = new double[4];
-    static All biscuit = new Biscuit();
-    static All chocolate = new Chocolate();
-    static All marshmallow = new Marshmallow();
-    static All sweet = new Sweet();
-
     public void makeGift() {
         Scanner sc = new Scanner(System.in);
-        int operation = 0;
+
+        All biscuit = new Biscuit();
+        All chocolate = new Chocolate();
+        All sweet = new Sweet();
+        All marshmallow = new Marshmallow();
+
+        ArrayList<All> all = new ArrayList<>();
+
+        int operation;
 
         System.out.println("Использовать старое меню?\n 1)Да\n 2)Нет");
         while(true) {
@@ -27,7 +31,7 @@ public class Candy {
         }
         if(operation ==1) {
             try {
-                Menu.deserializationMenu();
+                all = Serializator.deserialization();
             }catch(IOException | ClassNotFoundException e){
                 System.err.println("Ошибка ввода-вывода\n");
             }
@@ -41,20 +45,13 @@ public class Candy {
             }
 
             switch (operation) {
-                case 1:
-                    weightt[0] += biscuit.choose();
-                    break;
-                case 2:
-                    weightt[1] += chocolate.choose();
-                    break;
-                case 3:
-                    weightt[2] += marshmallow.choose();
-                    break;
-                case 4:
-                    weightt[3] += sweet.choose();
-                    break;
-                case 5:
+                case 1-> weightt[0] += biscuit.choose(all);
+                case 2-> weightt[1] += chocolate.choose(all);
+                case 3-> weightt[2] += marshmallow.choose(all);
+                case 4->weightt[3] += sweet.choose(all);
+                case 5-> {
                     return;
+                }
             }
         }
     }
@@ -116,12 +113,6 @@ public class Candy {
 
         }
         if(t) System.out.println("Вы не собрали подарок");
-    }
-    public static void serialization() throws IOException {
-        biscuit.serializationCandy();
-        chocolate.serializationCandy();
-        marshmallow.serializationCandy();
-        sweet.serializationCandy();
     }
 }
 

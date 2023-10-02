@@ -1,34 +1,62 @@
 package Candy;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public abstract class All {
     protected String name;
     protected double weight;
-    public abstract void addGift(int i);
-    public abstract double choose();
-    public abstract void view();
-    public abstract void addCandy();
+    public abstract void addGift(int i, All all);
+    public abstract double choose(ArrayList<All> all);
+    public abstract boolean view(ArrayList<All> all);
     public abstract void viewGift();
-    public abstract void serializationCandy() throws IOException;
-    public abstract void deserializationCandy() throws IOException, ClassNotFoundException;
-    public void add() {
+
+
+    public All(String name) {
+        this.name = name;
+    }
+
+    public All() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+    public String addName() {
         Scanner sc = new Scanner(System.in);
+        String name = null;
         System.out.print("Введите название: ");
         try {
-            this.name = sc.nextLine();
+            name = sc.nextLine();
         } catch (InputMismatchException e) {
             System.out.print("Ошибка ввода( Повторите ввод: ");
         }
-
+        return name;
+    }
+    public double addWeight() {
+        Scanner sc = new Scanner(System.in);
+        double weight = 0;
         System.out.print("Введите массу: ");
         try {
-            this.weight = sc.nextInt();
+            weight = sc.nextInt();
         } catch (InputMismatchException e) {
             System.out.print("Ошибка ввода( Повторите ввод: ");
         }
         sc.nextLine();
+        return weight;
     }
 }

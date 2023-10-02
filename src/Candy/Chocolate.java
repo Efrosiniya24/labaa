@@ -7,52 +7,52 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Chocolate extends All implements Serializable {
-    static ArrayList<String> chocolateName = new ArrayList<>();
-    static ArrayList<Double> chocolateWeight = new ArrayList<>();
+    static ArrayList<All> chocolate = new ArrayList<>();
     static ArrayList<String> chocolateGift = new ArrayList<>();
 
     @Override
-    public void addCandy()  {
-        chocolateName.add(name);
-        chocolateWeight.add(weight);
+    public boolean view(ArrayList<All> all) {
+        int i = 1;
+        System.out.println("\n___Печенье___: ");
+        for (All alls: all)
+            if(alls instanceof Chocolate) {
+                System.out.println((i) + ") " + alls.getName() + " вес: " + alls.getWeight());
+                chocolate.add(alls);
+                i++;
+            }
+        if( i == 1) {
+            System.out.println("Шоколада нет");
+            return false;
+        }
+        else return true;
     }
     @Override
-    public void addGift(int i){
+    public void addGift(int i, All all){
         boolean t = true;
         for (int u = 0; u < chocolateGift.size(); u++)
-            if(chocolateGift.get(u) == chocolateName.get(i-1))
+            if(chocolateGift.get(u).equals(all))
                 t =false;
         if(t == true)
-            chocolateGift.add(chocolateName.get(i-1));
+            chocolateGift.add(all.getName());
     }
+    @Override
     public void viewGift(){
-        System.out.println("\n___Шоколад____: ");
-        for (int i = 0; i < chocolateName.size(); i++)
-            System.out.println((i + 1) + ") " + chocolateName.get(i));
+        System.out.println("\n___Шоколад___: ");
+        for (int i = 0; i < chocolateGift.size(); i++)
+            System.out.println((i + 1) + ") " + chocolateGift.get(i));
     }
 
     @Override
-    public void view() {
-        System.out.println("___Шоколад____");
-            for (int i = 0; i < chocolateWeight.size(); i++)
-               System.out.println((i + 1) + ") " + chocolateName.get(i) + " вес: " + chocolateWeight.get(i));
-    }
-
-    @Override
-    public double choose() {
+    public double choose(ArrayList<All> all) {
         Scanner sc = new Scanner(System.in);
-        int operation = 0;
-        int amount = 0;
+        int operation;
+        int amount;
         double allWeihgt = 0;
-
-        if(chocolateName.size() == 0 )
-            System.out.println("Шоколада нет");
-        else {
+        boolean t = view(all);
+        if (t) {
             while (true) {
-                System.out.print("Выберите шоколад");
-                view();
+                System.out.print("Номер шоколада: ");
                 while (true) {
-                    System.out.print("Номер шоколада: ");
                     try {
                         operation = sc.nextInt();
                         break;
@@ -61,7 +61,9 @@ public class Chocolate extends All implements Serializable {
                         sc.next();
                     }
                 }
+
                 System.out.println("Укажите количество: ");
+
                 while (true) {
                     try {
                         amount = sc.nextInt();
@@ -71,9 +73,13 @@ public class Chocolate extends All implements Serializable {
                         sc.next();
                     }
                 }
-                this.addGift(operation);
-                allWeihgt += (amount * chocolateWeight.get(operation - 1));
+
+                addGift(operation, chocolate.get(operation - 1));
+
+                allWeihgt += (amount * chocolate.get(operation - 1).getWeight());
+
                 System.out.println("Продолжить?\n 1)Да\n 2)Нет");
+
                 while (true) {
                     try {
                         operation = sc.nextInt();
@@ -87,15 +93,5 @@ public class Chocolate extends All implements Serializable {
             }
         }
         return 0;
-    }
-    @Override
-    public void serializationCandy() throws IOException {
-        Serializator.serialization(chocolateName);
-        Serializator.serialization(chocolateWeight);
-    }
-    @Override
-    public  void deserializationCandy() throws IOException, ClassNotFoundException {
-        chocolateName = Serializator.deserialization();
-        chocolateWeight = Serializator.deserialization();
     }
 }
