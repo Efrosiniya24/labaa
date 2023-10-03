@@ -28,12 +28,9 @@ public class Sweet extends All implements Serializable {    static ArrayList<All
     }
     @Override
     public void addGift(int i, All all){
-        boolean t = true;
-        for (int u = 0; u < sweetGift.size(); u++)
-            if(sweetGift.get(u).equals(all))
-                t =false;
-        if(t == true)
+        if (!sweetGift.contains(all.getName())) {
             sweetGift.add(all.getName());
+        }
     }
     @Override
     public void viewGift(){

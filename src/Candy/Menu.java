@@ -8,21 +8,15 @@ import java.util.Scanner;
 
 public class Menu implements Serializable {
     public void makeMenu() {
-        All biscuit = new Biscuit();
-        All chocolate = new Chocolate();
-        All sweet = new Sweet();
-        All marshmallow = new Marshmallow();
 
         ArrayList<All> all = new ArrayList<>();
 
-        int operation;
-
         System.out.println("Желаете создать новое меню?\n 1)Да\n 2)Нет");
-        operation  = inputOperation();
+        int operation  = inputOperation();
 
         if(operation !=1) {
             try {
-                all = Serializator.deserialization();
+                all.addAll(Serializator.deserialization());
             }catch(IOException | ClassNotFoundException e){
                 System.err.println("Ошибка ввода-вывода\n");
             }
@@ -34,22 +28,26 @@ public class Menu implements Serializable {
 
             switch (operation) {
                 case 1 -> {
-                    //biscuit = new Biscuit(biscuit.addName());
+                    All biscuit = new Biscuit();
                     biscuit.setName(biscuit.addName());
+                    System.out.println(biscuit.getName());
                     biscuit.setWeight(biscuit.addWeight());
                     all.add(biscuit);
                 }
                 case 2 -> {
+                    All chocolate = new Chocolate();
                     chocolate.setName(chocolate.addName());
                     chocolate.setWeight(chocolate.addWeight());
                     all.add(chocolate);
                 }
                 case 3 -> {
+                    All sweet = new Sweet();
                     sweet.setName(sweet.addName());
                     sweet.setWeight(sweet.addWeight());
                     all.add(sweet);
                 }
                 case 4 -> {
+                    All marshmallow = new Marshmallow();
                     marshmallow.setName(marshmallow.addName());
                     marshmallow.setWeight(marshmallow.addWeight());
                     all.add(marshmallow);
@@ -64,13 +62,16 @@ public class Menu implements Serializable {
     }
 
     public static void saveFile(ArrayList<All> all){
-        int operation = 0;
+        int operation;
 
         while(true) {
             System.out.println("Сохранить меню?\n 1)Да\n 2)Нет");
             operation  = inputOperation();
             if(operation == 1)
                 try {
+                    for (All a:all){
+                        System.out.println(a.name);
+                    }
                     Serializator.serialization(all);
                     System.out.println("Данные записаны в файл");
                     return;
@@ -83,7 +84,7 @@ public class Menu implements Serializable {
     }
     public static int inputOperation(){
         Scanner sc = new Scanner(System.in);
-        int operation = 0;
+        int operation;
         while(true) {
             try {
                 operation = sc.nextInt();

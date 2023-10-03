@@ -1,4 +1,4 @@
-//9. Новогодний подарок. Определить иерархию конфет и прочих сладостей.
+//Новогодний подарок. Определить иерархию конфет и прочих сладостей.
 // Создать несколько объектов-конфет. Собрать детский подарок с определением его веса.
 
 import Candy.*;
@@ -10,6 +10,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int operation = 0;
+        Candy candy  = new Candy();
+        Menu menu = new Menu();
         while(true) {
             System.out.println("Меню:\n 1)Собрать подарок\n" +
                     " 2)Посмотреть вес подарка\n" +
@@ -22,9 +24,6 @@ public class Main {
                 } catch (InputMismatchException e) {
                     sc.next();
                 }
-
-            Candy candy  = new Candy();
-            Menu menu = new Menu();
 
             switch (operation) {
                 case 1 -> candy.makeGift();

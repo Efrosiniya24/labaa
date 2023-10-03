@@ -1,6 +1,5 @@
 package Candy;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -28,12 +27,9 @@ public class Biscuit extends All implements Serializable {
 
     @Override
     public void addGift(int i, All all){
-        boolean t = true;
-        for (int u = 0; u < biscuitsGift.size(); u++)
-            if(biscuitsGift.get(u).equals(all))
-                t =false;
-        if(t == true)
+        if (!biscuitsGift.contains(all.getName())) {
             biscuitsGift.add(all.getName());
+        }
     }
     @Override
     public void viewGift(){

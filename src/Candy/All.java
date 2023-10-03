@@ -1,30 +1,25 @@
 package Candy;
 
-import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public abstract class All {
+public abstract class All implements Serializable {
     protected String name;
     protected double weight;
     public abstract void addGift(int i, All all);
     public abstract double choose(ArrayList<All> all);
     public abstract boolean view(ArrayList<All> all);
     public abstract void viewGift();
-
-
-    public All(String name) {
-        this.name = name;
-    }
-
+//    public All(String name) {
+//        this.name = name;
+//    }
     public All() {
     }
-
     public String getName() {
         return name;
     }
-
     public double getWeight() {
         return weight;
     }

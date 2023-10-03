@@ -15,6 +15,7 @@ public class Serializator {
     public static ArrayList<All> deserialization()  throws IOException, ClassNotFoundException {
         try(FileInputStream fileInputStream = new FileInputStream("Menu");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)){
+
             return     (ArrayList<All>) objectInputStream.readObject();
         }
     }
