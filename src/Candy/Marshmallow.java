@@ -4,20 +4,20 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
-public class Marshmallow extends All implements Serializable {    static ArrayList<All> chocolate = new ArrayList<>();
-    static ArrayList<All> marshmallow = new ArrayList<>();
-    static ArrayList<String> marshmallowGift = new ArrayList<>();
+public class Marshmallow extends All implements Serializable {
+    static List<All> marshmallow = new ArrayList<>();
+    static List<String> marshmallowGift = new ArrayList<>();
 
     @Override
-    public boolean view(ArrayList<All> all) {
+    public boolean view(List<All> all) {
         int i = 1;
-        System.out.println("\n___Зефир___: ");
         for (All alls: all)
             if(alls instanceof Marshmallow) {
                 System.out.println((i) + ") " + alls.getName() + " вес: " + alls.getWeight());
-                chocolate.add(alls);
+                marshmallow.add(alls);
                 i++;
             }
         if( i == 1) {
@@ -28,12 +28,9 @@ public class Marshmallow extends All implements Serializable {    static ArrayLi
     }
     @Override
     public void addGift(int i, All all){
-        boolean t = true;
-        for (int u = 0; u < marshmallowGift.size(); u++)
-            if(marshmallowGift.get(u).equals(all))
-                t =false;
-        if(t == true)
+        if (!marshmallowGift.contains(all.getName())) {
             marshmallowGift.add(all.getName());
+        }
     }
     @Override
     public void viewGift(){
@@ -43,7 +40,7 @@ public class Marshmallow extends All implements Serializable {    static ArrayLi
     }
 
     @Override
-    public double choose(ArrayList<All> all) {
+    public double choose(List<All> all) {
         Scanner sc = new Scanner(System.in);
         int operation;
         int amount;

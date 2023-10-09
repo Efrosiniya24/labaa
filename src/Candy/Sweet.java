@@ -4,14 +4,15 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Sweet extends All implements Serializable {    static ArrayList<All> marshmallow = new ArrayList<>();
-    static ArrayList<All> sweet = new ArrayList<>();
-    static ArrayList<String> sweetGift = new ArrayList<>();
+    static List<All> sweet = new ArrayList<>();
+    static List<String> sweetGift = new ArrayList<>();
 
     @Override
-    public boolean view(ArrayList<All> all) {
+    public boolean view(List<All> all) {
         int i = 1;
         System.out.println("\n___Конфеты___: ");
         for (All alls: all)
@@ -40,7 +41,7 @@ public class Sweet extends All implements Serializable {    static ArrayList<All
     }
 
     @Override
-    public double choose(ArrayList<All> all) {
+    public double choose(List<All> all) {
         Scanner sc = new Scanner(System.in);
         int operation;
         int amount;

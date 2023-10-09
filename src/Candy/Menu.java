@@ -4,12 +4,15 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+
+import static Candy.Candy.all2;
 
 public class Menu implements Serializable {
     public void makeMenu() {
 
-        ArrayList<All> all = new ArrayList<>();
+        List<All> all = new ArrayList<>();
 
         System.out.println("Желаете создать новое меню?\n 1)Да\n 2)Нет");
         int operation  = inputOperation();
@@ -61,7 +64,7 @@ public class Menu implements Serializable {
 
     }
 
-    public static void saveFile(ArrayList<All> all){
+    public static void saveFile(List<All> all2){
         int operation;
 
         while(true) {
@@ -69,10 +72,10 @@ public class Menu implements Serializable {
             operation  = inputOperation();
             if(operation == 1)
                 try {
-                    for (All a:all){
+                    for (All a:all2){
                         System.out.println(a.name);
                     }
-                    Serializator.serialization(all);
+                    Serializator.serialization(all2);
                     System.out.println("Данные записаны в файл");
                     return;
                 }catch(IOException e){

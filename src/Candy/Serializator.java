@@ -2,9 +2,10 @@ package Candy;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Serializator {
-    public static void serialization(ArrayList<All> all) throws IOException {
+    public static void serialization(List<All> all) throws IOException {
         try(FileOutputStream fileOutputStream = new FileOutputStream("Menu");
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)){
             objectOutputStream.writeObject(all);
@@ -12,11 +13,11 @@ public class Serializator {
             System.out.println("Ошибка");
         }
     }
-    public static ArrayList<All> deserialization()  throws IOException, ClassNotFoundException {
+    public static List<All> deserialization()  throws IOException, ClassNotFoundException {
         try(FileInputStream fileInputStream = new FileInputStream("Menu");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)){
 
-            return     (ArrayList<All>) objectInputStream.readObject();
+            return     (List<All>) objectInputStream.readObject();
         }
     }
 }

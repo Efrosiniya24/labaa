@@ -1,16 +1,14 @@
 package Candy;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 public abstract class All implements Serializable {
     protected String name;
     protected double weight;
     public abstract void addGift(int i, All all);
-    public abstract double choose(ArrayList<All> all);
-    public abstract boolean view(ArrayList<All> all);
+    public abstract double choose(List<All> all);
+    public abstract boolean view(List<All> all);
     public abstract void viewGift();
 //    public All(String name) {
 //        this.name = name;
@@ -53,5 +51,26 @@ public abstract class All implements Serializable {
         }
         sc.nextLine();
         return weight;
+    }
+
+    @Override
+    public String toString() {
+        return "All{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        All all = (All) o;
+        return Double.compare(all.weight, weight) == 0 && Objects.equals(name, all.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, weight);
     }
 }

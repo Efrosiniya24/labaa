@@ -3,14 +3,16 @@ package Candy;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Biscuit extends All implements Serializable {
-      static ArrayList<All> biscuit = new ArrayList<>();
-      static ArrayList<String> biscuitsGift = new ArrayList<>();
+      static List<All> biscuit = new ArrayList<>();
+      static List<String> biscuitsGift = new ArrayList<>();
+
 
     @Override
-    public boolean view(ArrayList<All> all) {
+    public boolean view(List<All> all) {
        int i = 1;
         for (All alls: all)
            if(alls instanceof Biscuit) {
@@ -39,7 +41,7 @@ public class Biscuit extends All implements Serializable {
     }
 
     @Override
-    public double choose(ArrayList<All> all) {
+    public double choose(List<All> all) {
         Scanner sc = new Scanner(System.in);
         int operation;
         int amount;

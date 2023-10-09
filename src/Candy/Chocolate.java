@@ -4,16 +4,17 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Chocolate extends All implements Serializable {
-    static ArrayList<All> chocolate = new ArrayList<>();
-    static ArrayList<String> chocolateGift = new ArrayList<>();
+    static List<All> chocolate = new ArrayList<>();
+    static List<String> chocolateGift = new ArrayList<>();
 
     @Override
-    public boolean view(ArrayList<All> all) {
+    public boolean view(List<All> all) {
         int i = 1;
-        System.out.println("\n___Печенье___: ");
+        System.out.println("\n___Шоколад___: ");
         for (All alls: all)
             if(alls instanceof Chocolate) {
                 System.out.println((i) + ") " + alls.getName() + " вес: " + alls.getWeight());
@@ -28,12 +29,9 @@ public class Chocolate extends All implements Serializable {
     }
     @Override
     public void addGift(int i, All all){
-        boolean t = true;
-        for (int u = 0; u < chocolateGift.size(); u++)
-            if(chocolateGift.get(u).equals(all))
-                t =false;
-        if(t == true)
+        if (!chocolateGift.contains(all.getName())) {
             chocolateGift.add(all.getName());
+        }
     }
     @Override
     public void viewGift(){
@@ -43,7 +41,7 @@ public class Chocolate extends All implements Serializable {
     }
 
     @Override
-    public double choose(ArrayList<All> all) {
+    public double choose(List<All> all) {
         Scanner sc = new Scanner(System.in);
         int operation;
         int amount;
