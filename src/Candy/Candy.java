@@ -45,32 +45,27 @@ public class Candy {
 
         System.out.println("1)Использовать фильтры\n 2)Сбросить фильтры\n 3)Продолжить со старой фильтрацией");
         int u = inputOperation();
+        if(u ==1 || u ==2) {
+            System.out.println("1)Вес одной сладости\n 2)Вкус сладостей");
+            operation = inputOperation();
 
-        System.out.println("1)Вес одной сладости\n 2)Вкус сладостей\n 3)Выход");
-        operation = inputOperation();
-
-        if (u == 2)
-            if (operation == 1) {
-                useW = true;
-                useWeight = 0;
-            }
-            else {
-                useN = true;
-                useName = 0;
-            }
-        else
-            if (u == 1)
+            if (u == 2)
                 if (operation == 1) {
                     useW = true;
-                    useWeight = 1;
-                }
-                else
-                {
+                    useWeight = 0;
+                } else {
                     useN = true;
-                    useName = 1;
+                    useName = 0;
                 }
-        filter = useDeleteFilter(filter, useWeight, useName, all);
-
+            else if (operation == 1) {
+                useW = true;
+                useWeight = 1;
+            } else {
+                useN = true;
+                useName = 1;
+            }
+            filter = useDeleteFilter(filter, useWeight, useName, all);
+        }
         while (true) {
             System.out.println("Выберите тип сладостей:\n 1) Печенье\n 2) Шоколад\n 3) Зефир\n 4) Конфеты\n 5) Выход");
             try {
@@ -124,22 +119,22 @@ public class Candy {
             if (weightt[i] != 0) {
                 t = false;
                 switch (i) {
-                    case 0:
+                    case 0 -> {
                         All biscuit = new Biscuit();
                         biscuit.viewGift();
-                        break;
-                    case 1:
+                    }
+                    case 1 -> {
                         All cake = new Chocolate();
                         cake.viewGift();
-                        break;
-                    case 2:
+                    }
+                    case 2 -> {
                         All marshmallow = new Marshmallow();
                         marshmallow.viewGift();
-                        break;
-                    case 3:
+                    }
+                    case 3 -> {
                         All sweet = new Sweet();
                         sweet.viewGift();
-                        break;
+                    }
                 }
                 System.out.println("Общий вес: " + weightt[i] + "\n");
             }

@@ -29,7 +29,6 @@ public class Filter {
     }
     public List<All> filterByWord()
     {
-        System.out.println(name);
         all2 =  (List<All>) all2.stream()
                 .filter(all -> (all.getName().contains(name.substring(0,4))))
                 .collect(Collectors.toList());

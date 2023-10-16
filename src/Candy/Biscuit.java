@@ -41,7 +41,7 @@ public class Biscuit extends All implements Serializable {
     }
 
     @Override
-    public double choose(List<All> all) {
+    public double choose(List<All> all) throws ArrayIndexOutOfBoundsException {
         Scanner sc = new Scanner(System.in);
         int operation;
         int amount;
@@ -54,7 +54,7 @@ public class Biscuit extends All implements Serializable {
                     try {
                         operation = sc.nextInt();
                         break;
-                    } catch (InputMismatchException e) {
+                    } catch ( ArrayIndexOutOfBoundsException | InputMismatchException e) {
                         System.out.println("Повторите ввод");
                         sc.next();
                     }
@@ -71,11 +71,8 @@ public class Biscuit extends All implements Serializable {
                         sc.next();
                     }
                 }
-
                 addGift(operation, biscuit.get(operation - 1));
-
                 allWeihgt += (amount * biscuit.get(operation - 1).getWeight());
-
                 System.out.println("Продолжить?\n 1)Да\n 2)Нет");
 
                 while (true) {

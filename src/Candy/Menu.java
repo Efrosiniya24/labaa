@@ -33,7 +33,6 @@ public class Menu implements Serializable {
                 case 1 -> {
                     All biscuit = new Biscuit();
                     biscuit.setName(biscuit.addName());
-                    System.out.println(biscuit.getName());
                     biscuit.setWeight(biscuit.addWeight());
                     all.add(biscuit);
                 }
@@ -72,9 +71,6 @@ public class Menu implements Serializable {
             operation  = inputOperation();
             if(operation == 1)
                 try {
-                    for (All a:all2){
-                        System.out.println(a.name);
-                    }
                     Serializator.serialization(all2);
                     System.out.println("Данные записаны в файл");
                     return;

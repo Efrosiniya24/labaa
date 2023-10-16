@@ -52,25 +52,4 @@ public abstract class All implements Serializable {
         sc.nextLine();
         return weight;
     }
-
-    @Override
-    public String toString() {
-        return "All{" +
-                "name='" + name + '\'' +
-                ", weight=" + weight +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        All all = (All) o;
-        return Double.compare(all.weight, weight) == 0 && Objects.equals(name, all.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, weight);
-    }
 }
