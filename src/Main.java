@@ -2,13 +2,10 @@
 // Создать несколько объектов-конфет. Собрать детский подарок с определением его веса.
 
 import Candy.*;
-
-import java.sql.Array;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
 
         int operation = 0;
@@ -32,9 +29,7 @@ public class Main {
                 case 2 -> candy.count();
                 case 3 -> menu.makeMenu();
                 case 4 -> candy.view();
-                case 5 -> {
-                    return ;
-                }
+                case 5 -> {return ;}
             }
         }
     }

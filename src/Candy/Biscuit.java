@@ -29,7 +29,7 @@ public class Biscuit extends All implements Serializable {
 
     @Override
     public void addGift(int i, All all){
-        if (!biscuitsGift.contains(all.getName())) {
+        if (!(biscuitsGift.contains(all.getName()))) {
             biscuitsGift.add(all.getName());
         }
     }

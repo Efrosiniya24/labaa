@@ -13,6 +13,7 @@ public abstract class All implements Serializable {
 //    public All(String name) {
 //        this.name = name;
 //    }
+
     public All() {
     }
     public String getName() {
@@ -51,5 +52,13 @@ public abstract class All implements Serializable {
         }
         sc.nextLine();
         return weight;
+    }
+
+    @Override
+    public String toString() {
+        return "All{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                '}';
     }
 }
