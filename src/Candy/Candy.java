@@ -201,13 +201,6 @@ public class Candy {
             all2 = filter.filterByWeight();
             useW = false;
         }
-//        else {
-//            all2.clear();
-//            all2.addAll(all);
-//            if (sort) sort1();
-//            else sort2();
-//        }
-
         if (useName == 1) {
             if (useN) {
                 System.out.println("Введите вкус:");
@@ -217,13 +210,6 @@ public class Candy {
             all2 = filter.filterByWord();
             useN = false;
         }
-//        }  else {
-//            all2.clear();
-//            all2.addAll(all);
-//            if (sort) sort1();
-//            else sort2();
-//        }
-
         return filter;
     }
 
@@ -251,12 +237,14 @@ public class Candy {
                     sort = 1;
                     sort1();
                     cancelSort = false;
+                    System.out.println("Данные отсортированы)");
                     return;
                 }
                 case 2 -> {
                     sort = 2;
                     sort2();
                     cancelSort = false;
+                    System.out.println("Данные отсортированы)");
                     return;
                 }
                 case 3 -> {
@@ -285,6 +273,7 @@ public class Candy {
         useW = false;
         useN = false;
         cancelSort = true;
+        System.out.println("Сортировка отменена)");
         useDeleteFilter(null, useWeight, useName, true);
     }
 }
