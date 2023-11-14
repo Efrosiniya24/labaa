@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2affbbc3-b31c-4fe9-ba55-293853708f7b" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/src/Candy/SortAscending.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Candy/SortDecreasing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/A1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/A2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Runnable1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Thread1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Menu" beforeDir="false" afterPath="$PROJECT_DIR$/Menu" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Candy/All.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/All.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Candy/Biscuit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Biscuit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Candy/Candy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Candy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,6 +92,8 @@
       <workItem from="1699368208855" duration="2613000" />
       <workItem from="1699524108721" duration="332000" />
       <workItem from="1699528678108" duration="595000" />
+      <workItem from="1699946094521" duration="1246000" />
+      <workItem from="1699955524363" duration="1388000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1696178742644</created>
@@ -151,7 +152,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697489749121</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary=".">
+      <created>1699811936987</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699811936987</updated>
+    </task>
+    <task id="LOCAL-00010" summary=".">
+      <created>1699812268084</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699812268084</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,27 +186,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="." />
     <option name="LAST_COMMIT_MESSAGE" value="." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Candy/Candy.java</url>
-          <line>282</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Candy/Candy.java</url>
-          <line>283</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Candy/Candy.java</url>
-          <line>284</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
