@@ -1,0 +1,39 @@
+package Autorization.User;
+
+import Candy.Candy;
+
+import java.io.Serializable;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Customer extends User {
+    public Customer(String login, String password) {
+        super(login, password);
+    }
+    @Override
+    public void reviewMenu() throws InterruptedException {
+        Scanner sc = new Scanner(System.in);
+        int operation = 0;
+        while(true) {
+            System.out.println("""
+                    Меню:
+                     1)Собрать подарок
+                     2)Посмотреть вес подарка
+                     3)Добавить сладости в меню
+                     4)Посмотреть новорогодний подарок
+                     5)Выход""");
+            try {
+                operation = sc.nextInt();
+            } catch (InputMismatchException e) {
+                sc.next();
+            }
+            Candy candy = new Candy();
+            switch (operation) {
+                case 1 -> candy.makeGift();
+                case 2 -> candy.count();
+                case 4 -> candy.view();
+                case 5 -> {return ;}
+            }
+        }
+    }
+}

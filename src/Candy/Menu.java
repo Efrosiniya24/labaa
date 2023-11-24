@@ -15,19 +15,25 @@ public class Menu implements Serializable {
         List<All> all = new ArrayList<>();
 
         System.out.println("Желаете создать новое меню?\n 1)Да\n 2)Нет");
-        int operation  = inputOperation();
+        int operation = inputOperation();
 
-        if(operation !=1) {
+        if (operation != 1) {
             try {
                 all.addAll(Serializator.deserialization());
-            }catch(IOException | ClassNotFoundException e){
+            } catch (IOException | ClassNotFoundException e) {
                 System.err.println("Ошибка ввода-вывода\n");
             }
         }
 
         while (true) {
-            System.out.println("\nВыберите группу сладостей:\n 1)Печенье\n 2)Шоколад\n 3)Конфеты\n 4)Зефир\n 5)Выход");
-            operation  = inputOperation();
+            System.out.println("""
+                    Выберите группу сладостей:
+                    1)Печенье
+                    2)Шоколад
+                    3)Конфеты
+                    4)Зефир
+                    5)Выход""");
+            operation = inputOperation();
 
             switch (operation) {
                 case 1 -> {
@@ -63,28 +69,29 @@ public class Menu implements Serializable {
 
     }
 
-    public static void saveFile(List<All> all2){
+    public static void saveFile(List<All> all2) {
         int operation;
 
-        while(true) {
+        while (true) {
             System.out.println("Сохранить меню?\n 1)Да\n 2)Нет");
-            operation  = inputOperation();
-            if(operation == 1)
+            operation = inputOperation();
+            if (operation == 1)
                 try {
                     Serializator.serialization(all2);
                     System.out.println("Данные записаны в файл");
                     return;
-                }catch(IOException e){
+                } catch (IOException e) {
                     System.err.println("Ошибка ввода-вывода\n");
                 }
-            else if(operation ==2)
+            else if (operation == 2)
                 return;
         }
     }
-    public static int inputOperation(){
+
+    public static int inputOperation() {
         Scanner sc = new Scanner(System.in);
         int operation;
-        while(true) {
+        while (true) {
             try {
                 operation = sc.nextInt();
                 return operation;

@@ -1,35 +1,38 @@
 //Новогодний подарок. Определить иерархию конфет и прочих сладостей.
 // Создать несколько объектов-конфет. Собрать детский подарок с определением его веса.
 
+//import Autorization.Entry;
+import Autorization.Entry;
+import Autorization.Registration;
+import Autorization.SerializatorAuthorization;
+import Autorization.User.Customer;
+import Autorization.User.User;
 import Candy.*;
+
+import java.io.IOException;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
         Scanner sc = new Scanner(System.in);
 
         int operation = 0;
         Candy candy  = new Candy();
         Menu menu = new Menu();
-        while(true) {
-            System.out.println("Меню:\n 1)Собрать подарок\n" +
-                    " 2)Посмотреть вес подарка\n" +
-                    " 3)Добавить сладости в меню\n " +
-                    " 4)Посмотреть новорогодний подарок\n"+
-                    "5)Выход ");
+        int indexUser = 0;
 
-                try {
-                    operation = sc.nextInt();
-                } catch (InputMismatchException e) {
-                    sc.next();
-                }
+        while(true) {
+            System.out.println("Меню:\n 1)Вход\n 2)Регистрация\n 3)Выход");
+            try {
+                operation = sc.nextInt();
+            } catch (InputMismatchException e) {
+                sc.next();
+            }
 
             switch (operation) {
-                case 1 -> candy.makeGift();
-                case 2 -> candy.count();
-                case 3 -> menu.makeMenu();
-                case 4 -> candy.view();
-                case 5 -> {return ;}
+                case 1 -> Entry.entry();
+                case 2 -> Registration.registration();
+                case 3 -> {return ;}
             }
         }
     }
