@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2affbbc3-b31c-4fe9-ba55-293853708f7b" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/LoginPassword" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Autorization/Entry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Autorization/Registration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Autorization/SerializatorAuthorization.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Autorization/User/Administrator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Autorization/User/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Autorization/User/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/A1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/A2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Runnable1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Thread1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Administrator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Candy/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Biscuit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Biscuit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,32 +36,30 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2UyKp13OYWiQkeEZoC15Zspxak7" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Фрося/БГУИР/2 курс/оопип/laba1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Фрося/БГУИР/2 курс/оопип/laba1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -100,18 +93,7 @@
       <workItem from="1699524108721" duration="332000" />
       <workItem from="1699528678108" duration="595000" />
       <workItem from="1699946094521" duration="1246000" />
-      <workItem from="1699955524363" duration="1657000" />
-      <workItem from="1700507529429" duration="2600000" />
-      <workItem from="1700583590250" duration="906000" />
-      <workItem from="1700736961112" duration="586000" />
-      <workItem from="1700834008798" duration="3245000" />
-      <workItem from="1700845660036" duration="6431000" />
-      <workItem from="1700910873195" duration="3152000" />
-      <workItem from="1701012752123" duration="2149000" />
-      <workItem from="1701067954304" duration="1204000" />
-      <workItem from="1701100925964" duration="1096000" />
-      <workItem from="1701627410835" duration="9036000" />
-      <workItem from="1701638012119" duration="5171000" />
+      <workItem from="1699955524363" duration="1388000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1696178742644</created>
@@ -184,15 +166,7 @@
       <option name="project" value="LOCAL" />
       <updated>1699812268084</updated>
     </task>
-    <task id="LOCAL-00011" summary=".">
-      <option name="closed" value="true" />
-      <created>1699957141777</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1699957141777</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,42 +186,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="." />
     <option name="LAST_COMMIT_MESSAGE" value="." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Autorization/Registration.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Autorization/Registration.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Autorization/Entry.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Autorization/SerializatorAuthorization.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Autorization/SerializatorAuthorization.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Autorization/Entry.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
