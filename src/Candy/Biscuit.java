@@ -38,8 +38,17 @@ public class Biscuit extends All implements Serializable {
     @Override
     public void viewGift(){
         System.out.println("\n___Печенье___: ");
-        for (int i = 0; i < biscuitsGift.size(); i++)
-            System.out.println((i + 1) + ") " + biscuitsGift.get(i));
+        int size = biscuit.size();
+        if(size == 0)
+            System.out.println("еченья нет");
+        else
+            for (int i = 0; i < biscuitsGift.size(); i++)
+                System.out.println((i + 1) + ") " + biscuitsGift.get(i));
+    }
+
+    @Override
+    public void delete(List<All> all, int i) {
+        all.remove(i);
     }
 
     @Override
@@ -90,6 +99,27 @@ public class Biscuit extends All implements Serializable {
             }
         }
         return 0;
+    }
+
+    public int chooseNumber() {
+        if(!biscuit.isEmpty()) {
+            Scanner sc = new Scanner(System.in);
+            int number;
+            while (true) {
+                System.out.print("Введите номер печенья: ");
+                try {
+                    number = sc.nextInt();
+                    if (number > biscuit.size())
+                        System.out.println("Такого печенья нет( Повторите ввод...");
+                    else break;
+                } catch (InputMismatchException e) {
+                    System.out.print("Ошибка ввода( Повторите ввод: ");
+                }
+                sc.nextLine();
+            }
+            return number-1;
+        }
+        return -1;
     }
 }
 

@@ -1,6 +1,5 @@
 package Candy;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -38,6 +37,33 @@ public class Sweet extends All implements Serializable {    static ArrayList<All
         System.out.println("\n___Конфеты___: ");
         for (int i = 0; i < sweetGift.size(); i++)
             System.out.println((i + 1) + ") " + sweetGift.get(i));
+    }
+
+    @Override
+    public void delete(List<All> all,int i) {
+        all.remove(i);
+    }
+
+    @Override
+    public int chooseNumber() {
+        if(!sweet.isEmpty()) {
+            Scanner sc = new Scanner(System.in);
+            int number = 0;
+            while (true) {
+                System.out.print("Введите номер печенья: ");
+                try {
+                    number = sc.nextInt();
+                    if (number >= sweet.size())
+                        System.out.println("Таких конфет нет( Повторите ввод...");
+                    else break;
+                } catch (InputMismatchException e) {
+                    System.out.print("Ошибка ввода( Повторите ввод: ");
+                }
+                sc.nextLine();
+            }
+            return number - 1;
+        }
+        return 0;
     }
 
     @Override

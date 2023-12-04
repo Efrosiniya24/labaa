@@ -5,13 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2affbbc3-b31c-4fe9-ba55-293853708f7b" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/src/A1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/A2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Runnable1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Thread1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoginPassword" beforeDir="false" afterPath="$PROJECT_DIR$/LoginPassword" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menu" beforeDir="false" afterPath="$PROJECT_DIR$/Menu" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Administrator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Autorization/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autorization/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Autorization/User/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autorization/User/Administrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Autorization/User/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autorization/User/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Autorization/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autorization/User/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/All.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/All.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Candy/Biscuit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Biscuit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Chocolate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Chocolate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Marshmallow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Marshmallow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Sweet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Sweet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +44,9 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2UyKp13OYWiQkeEZoC15Zspxak7" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -94,6 +104,7 @@
       <workItem from="1699528678108" duration="595000" />
       <workItem from="1699946094521" duration="1246000" />
       <workItem from="1699955524363" duration="1388000" />
+      <workItem from="1701678738022" duration="8433000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1696178742644</created>
@@ -186,6 +197,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="." />
     <option name="LAST_COMMIT_MESSAGE" value="." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Candy/Menu.java</url>
+          <line>149</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

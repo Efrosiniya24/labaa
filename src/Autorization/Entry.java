@@ -52,7 +52,7 @@ public class Entry implements Serializable {
         }
     }
 
-    public static void operations(String login, String password) throws InterruptedException {
+    public static void operations(String login, String password) throws InterruptedException, IOException, ClassNotFoundException {
         if(password.equals("1111") && login.equals("admin")){
             Administrator administrator = new Administrator(login, password);
             administrator.reviewMenu();

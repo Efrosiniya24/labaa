@@ -1,6 +1,5 @@
 package Candy;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -15,29 +14,57 @@ public class Chocolate extends All implements Serializable {
     public boolean view(List<All> all) {
         int i = 1;
         System.out.println("\n___Шоколад___: ");
-        for (All alls: all)
-            if(alls instanceof Chocolate) {
+        for (All alls : all)
+            if (alls instanceof Chocolate) {
                 System.out.println((i) + ") " + alls.getName() + " вес: " + alls.getWeight());
                 chocolate.add(alls);
                 i++;
             }
-        if( i == 1) {
+        if (i == 1) {
             System.out.println("Шоколада нет");
             return false;
-        }
-        else return true;
+        } else return true;
     }
+
     @Override
-    public void addGift(int i, All all){
+    public void addGift(int i, All all) {
         if (!chocolateGift.contains(all.getName())) {
             chocolateGift.add(all.getName());
         }
     }
+
     @Override
-    public void viewGift(){
+    public void viewGift() {
         System.out.println("\n___Шоколад___: ");
         for (int i = 0; i < chocolateGift.size(); i++)
             System.out.println((i + 1) + ") " + chocolateGift.get(i));
+    }
+
+    @Override
+    public void delete(List<All> all,int i) {
+        all.remove(i);;
+    }
+
+    @Override
+    public int chooseNumber() {
+        if(!chocolate.isEmpty()) {
+            Scanner sc = new Scanner(System.in);
+            int number = 0;
+            while (true) {
+                System.out.print("Введите номер печенья: ");
+                try {
+                    number = sc.nextInt();
+                    if (number >= chocolate.size())
+                        System.out.println("Такого шоколада нет( Повторите ввод...");
+                    else break;
+                } catch (InputMismatchException e) {
+                    System.out.print("Ошибка ввода( Повторите ввод: ");
+                }
+                sc.nextLine();
+            }
+            return number - 1;
+        }
+        return 0;
     }
 
     @Override

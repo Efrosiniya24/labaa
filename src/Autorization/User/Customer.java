@@ -18,10 +18,9 @@ public class Customer extends User {
             System.out.println("""
                     Меню:
                      1)Собрать подарок
-                     2)Посмотреть вес подарка
-                     3)Добавить сладости в меню
-                     4)Посмотреть новорогодний подарок
-                     5)Выход""");
+                     2)Посмотреть вес подарка             
+                     3)Посмотреть новорогодний подарок
+                     4)Выход""");
             try {
                 operation = sc.nextInt();
             } catch (InputMismatchException e) {
@@ -31,8 +30,8 @@ public class Customer extends User {
             switch (operation) {
                 case 1 -> candy.makeGift();
                 case 2 -> candy.count();
-                case 4 -> candy.view();
-                case 5 -> {return ;}
+                case 3 -> candy.view();
+                case 4 -> {return ;}
             }
         }
     }

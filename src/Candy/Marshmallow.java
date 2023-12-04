@@ -1,6 +1,5 @@
 package Candy;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -14,29 +13,56 @@ public class Marshmallow extends All implements Serializable {
     @Override
     public boolean view(List<All> all) {
         int i = 1;
-        for (All alls: all)
-            if(alls instanceof Marshmallow) {
+        for (All alls : all)
+            if (alls instanceof Marshmallow) {
                 System.out.println((i) + ") " + alls.getName() + " вес: " + alls.getWeight());
                 marshmallow.add(alls);
                 i++;
             }
-        if( i == 1) {
+        if (i == 1) {
             System.out.println("Зефира нет");
             return false;
-        }
-        else return true;
+        } else return true;
     }
+
     @Override
-    public void addGift(int i, All all){
+    public void addGift(int i, All all) {
         if (!marshmallowGift.contains(all.getName())) {
             marshmallowGift.add(all.getName());
         }
     }
+
     @Override
-    public void viewGift(){
+    public void viewGift() {
         System.out.println("\n___Зефир___: ");
         for (int i = 0; i < marshmallowGift.size(); i++)
             System.out.println((i + 1) + ") " + marshmallowGift.get(i));
+    }
+
+    @Override
+    public void delete(List<All> all,int i){  all.remove(i);
+    }
+
+    @Override
+    public int chooseNumber() {
+        if(!marshmallow.isEmpty()) {
+            Scanner sc = new Scanner(System.in);
+            int number = 0;
+            while (true) {
+                System.out.print("Введите номер печенья: ");
+                try {
+                    number = sc.nextInt();
+                    if (number >= marshmallow.size())
+                        System.out.println("Такого зефира нет( Повторите ввод...");
+                    else break;
+                } catch (InputMismatchException e) {
+                    System.out.print("Ошибка ввода( Повторите ввод: ");
+                }
+                sc.nextLine();
+            }
+            return number - 1;
+        }
+        return 0;
     }
 
     @Override

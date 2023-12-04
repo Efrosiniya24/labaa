@@ -54,6 +54,8 @@ public abstract class All implements Serializable {
         return weight;
     }
 
+    public abstract void delete(List<All> all, int i);
+    public abstract int chooseNumber();
     @Override
     public String toString() {
         return "All{" +
