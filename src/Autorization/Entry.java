@@ -30,7 +30,8 @@ public class Entry implements Serializable {
         if (users != null) {
             IteratorUser<User> iterator = new IteratorUser<>(users, 0);
             for (int i = 0; iterator.hasNext(); i++) {
-                if (users.get(i).getPassword().equals(password) && users.get(i).getLogin().equals(login)) {
+                User user = iterator.next();
+                if (user.getPassword().equals(password) && user.getLogin().equals(login)) {
                     indexUser = i;
                     break;
                 }
@@ -79,7 +80,8 @@ public class Entry implements Serializable {
             System.out.println("№  Логин          Пароль       Бан");
             IteratorUser<User> iterator = new IteratorUser<>(users, 0);
             for (int i = 0; iterator.hasNext(); i++) {
-                System.out.println((i + 1) + ") " + users.get(i).getLogin() + "          " + users.get(i).getPassword() + "       " + users.get(i).getBan());
+                User user = iterator.next();
+                System.out.println((i + 1) + ") " + user.getLogin() + "          " + user.getPassword() + "       " + user.getBan());
             }
             System.out.print("Введите номер пользователя: ");
 
@@ -118,7 +120,8 @@ public class Entry implements Serializable {
             System.out.println("№  Логин          Пароль       Бан");
             IteratorUser<User> iterator = new IteratorUser<>(users, 0);
             for (int i = 0; iterator.hasNext(); i++) {
-                System.out.println((i + 1) + ") " + users.get(i).getLogin() + "          " + users.get(i).getPassword() + "       " + users.get(i).getBan());
+                User user = iterator.next();
+                System.out.println((i + 1) + ") " + user.getLogin() + "          " + user.getPassword() + "       " + user.getBan());
             }
             System.out.print("Введите номер пользователя: ");
 
@@ -145,7 +148,8 @@ public class Entry implements Serializable {
             System.out.println("№  Логин          Пароль       Бан");
             IteratorUser<User> iterator = new IteratorUser<>(users, 0);
             for (int i = 0; iterator.hasNext(); i++) {
-                System.out.println((i + 1) + ") " + users.get(i).getLogin() + "          " + users.get(i).getPassword() + "       " + users.get(i).getBan());
+                User user = iterator.next();
+                System.out.println((i + 1) + ") " + user.getLogin() + "          " + user.getPassword() + "       " + user.getBan());
             }
             System.out.print("Введите номер пользователя для смены блокировки: ");
 
