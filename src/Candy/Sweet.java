@@ -32,6 +32,11 @@ public class Sweet extends All implements Serializable {    static ArrayList<All
             sweetGift.add(all.getName());
         }
     }
+
+    @Override
+    public void changeCandyMenu(List<All> all, All sweet, int num){
+        all.set(num, sweet);
+    }
     @Override
     public void viewGift(){
         System.out.println("\n___Конфеты___: ");

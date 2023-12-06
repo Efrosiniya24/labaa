@@ -5,6 +5,7 @@
 import Autorization.Entry;
 import Autorization.Registration;
 import Autorization.SerializatorAuthorization;
+import Autorization.User.Administrator;
 import Autorization.User.Customer;
 import Autorization.User.User;
 import Candy.*;
@@ -15,11 +16,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
         Scanner sc = new Scanner(System.in);
-
         int operation = 0;
-        Candy candy  = new Candy();
-        Menu menu = new Menu();
-        int indexUser = 0;
 
         while(true) {
             System.out.println("Меню:\n 1)Вход\n 2)Регистрация\n 3)Выход");

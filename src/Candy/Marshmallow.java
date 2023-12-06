@@ -33,6 +33,11 @@ public class Marshmallow extends All implements Serializable {
     }
 
     @Override
+    public void changeCandyMenu(List<All> all, All marshmallow, int num){
+        all.set(num, marshmallow);
+    }
+
+    @Override
     public void viewGift() {
         System.out.println("\n___Зефир___: ");
         for (int i = 0; i < marshmallowGift.size(); i++)

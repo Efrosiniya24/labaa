@@ -7,9 +7,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Customer extends User {
-    public Customer(String login, String password) {
-        super(login, password);
+
+    public Customer(String login, String password, boolean ban) {
+        super(login, password, ban);
     }
+
     @Override
     public void reviewMenu() throws InterruptedException {
         Scanner sc = new Scanner(System.in);
@@ -35,4 +37,6 @@ public class Customer extends User {
             }
         }
     }
+
+
 }

@@ -8,13 +8,14 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+import Autorization.Entry;
 import Candy.*;
 
 
 public class Administrator extends User {
 
-    public Administrator(String login, String password) {
-        super(login, password);
+    public Administrator(String login, String password, boolean ban) {
+        super(login, password, ban);
     }
 
     @Override
@@ -26,9 +27,12 @@ public class Administrator extends User {
                     Меню:
                     1)Добавить сладости в меню
                     2)Удалить сладости из меню
-                    3)Изменить список
-                    4)Выход из функционала администратора
-                    5) Выход из системы""");
+                    3)Изменить данные в меню
+                    4)Изменить данные о пользователе
+                    5)Удалить пользователя
+                    6)Блоктровать пользователей
+                    7)Выход из функционала администратора
+                    8) Выход из системы""");
             try {
                 operation = sc.nextInt();
             } catch (InputMismatchException e) {
@@ -37,8 +41,12 @@ public class Administrator extends User {
             Menu menu = new Menu();
             switch (operation) {
                 case 1 -> menu.addMenu();
-                case 2 -> { menu.deleteMenu();}
-                case 5 -> {
+                case 2 -> menu.deleteMenu();
+                case 3 -> menu. changeMenu();
+                case 4 -> Entry.changeUser();
+                case 5 -> Entry.deleteUser();
+                case 6 -> Entry.banUser();
+                case 7 -> {
                     return;
                 }
 

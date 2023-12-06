@@ -15,7 +15,6 @@ public class Registration implements Serializable {
     public static void registration() throws IOException, ClassNotFoundException, InterruptedException {
         Scanner sc = new Scanner(System.in);
         int operation = 0;
-        boolean equals = true;
         while (true) {
             System.out.print("Введите логин:");
             String login = sc.nextLine();
@@ -51,11 +50,12 @@ public class Registration implements Serializable {
                 }
             }
             if (operation != 2) {
-                User customer = new Customer(login, password);
+                User customer = new Customer(login, password, false);
                 users.add(customer);
                 SerializatorAuthorization.serialization(users);
                 System.out.println("Регистрация проведена успешно. Вы вошли в систему в качестве пользователя.");
                 Entry.operations(login, password);
+                return;
             }
         }
     }

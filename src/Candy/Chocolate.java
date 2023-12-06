@@ -25,6 +25,10 @@ public class Chocolate extends All implements Serializable {
             return false;
         } else return true;
     }
+    @Override
+    public void changeCandyMenu(List<All> all, All chocolate, int num){
+        all.set(num, chocolate);
+    }
 
     @Override
     public void addGift(int i, All all) {

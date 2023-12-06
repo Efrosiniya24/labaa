@@ -130,6 +130,80 @@ public class Menu implements Serializable {
         }
     }
 
+    public void changeMenu() throws IOException, ClassNotFoundException {
+        List<All> all = new ArrayList<>();
+        try {
+            all.addAll(Serializator.deserialization());
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Ошибка ввода-вывода\n");
+        }
+        while (true) {
+            System.out.println("""
+                    Выберите группу сладостей:
+                    1)Печенье
+                    2)Шоколад
+                    3)Конфеты
+                    4)Зефир
+                    5)Выход""");
+            int operation = inputOperation();
+
+            switch (operation) {
+                case 1 -> {
+                    All biscuit = new Biscuit();
+                    biscuit.view(all);
+                    int num = biscuit.chooseNumber();
+                    if (num != -1) {
+                        biscuit.setName(biscuit.addName());
+                        biscuit.setWeight(biscuit.addWeight());
+                        biscuit.changeCandyMenu(all, biscuit, num);
+                    }
+                    else
+                        System.out.println("Печенья нет...");
+                }
+                case 2 -> {
+                    All chocolate = new Chocolate();
+                    chocolate.view(all);
+                    int num = chocolate.chooseNumber();
+                    if (num != -1) {
+                        chocolate.setName(chocolate.addName());
+                        chocolate.setWeight(chocolate.addWeight());
+                        chocolate.changeCandyMenu(all, chocolate, num);
+                    }
+                    else
+                        System.out.println("Шоколада нет...");
+                }
+                case 3 -> {
+                    All sweet = new Sweet();
+                    sweet.view(all);
+                    int num = sweet.chooseNumber();
+                    if (num != -1) {
+                        sweet.setName(sweet.addName());
+                        sweet.setWeight(sweet.addWeight());
+                        sweet.changeCandyMenu(all, sweet, num);
+                    }
+                    else
+                        System.out.println("Конфет нет...");
+                }
+                case 4 -> {
+                    All marshmallow = new Marshmallow();
+                    marshmallow.view(all);
+                    int num =marshmallow.chooseNumber();
+                    if (num != -1) {
+                        marshmallow.setName(marshmallow.addName());
+                        marshmallow.setWeight(marshmallow.addWeight());
+                        marshmallow.changeCandyMenu(all, marshmallow, num);
+                    }
+                    else
+                        System.out.println("Зефира нет...");
+                }
+                case 5 -> {
+                    saveFile(all);
+                    return;
+                }
+            }
+        }
+    }
+
     public static void saveFile(List<All> all) throws IOException, ClassNotFoundException {
         int operation;
         List<All> all2 = new ArrayList<>();
@@ -167,4 +241,6 @@ public class Menu implements Serializable {
             }
         }
     }
+
+
 }

@@ -10,9 +10,8 @@ public abstract class All implements Serializable {
     public abstract double choose(List<All> all);
     public abstract boolean view(List<All> all);
     public abstract void viewGift();
-//    public All(String name) {
-//        this.name = name;
-//    }
+
+    public abstract void changeCandyMenu(List<All> all, All candy, int num);
 
     public All() {
     }
