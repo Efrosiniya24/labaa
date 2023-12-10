@@ -123,4 +123,21 @@ public class Sweet extends All implements Serializable {    static ArrayList<All
         }
         return 0;
     }
+
+//    @Override
+//    public void view(List<All> all) {
+//        int i = 1;
+//        System.out.println("\n___Конфеты___: ");
+//        for (All alls: all)
+//            if(alls instanceof Sweet) {
+//                System.out.println((i) + ") " + alls.getName() + " вес: " + alls.getWeight());
+//                sweet.add(alls);
+//                i++;
+//            }
+//        if( i == 1) {
+//            System.out.println("Конфет нет");
+//            return false;
+//        }
+//        else return true;
+//    }
 }

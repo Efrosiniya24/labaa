@@ -6,6 +6,8 @@ import java.util.*;
 public abstract class All implements Serializable {
     protected String name;
     protected double weight;
+
+
     public abstract void addGift(int i, All all);
     public abstract double choose(List<All> all);
     public abstract boolean view(List<All> all);

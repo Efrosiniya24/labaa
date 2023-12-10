@@ -36,28 +36,20 @@ public class Menu implements Serializable {
 
             switch (operation) {
                 case 1 -> {
-                    All biscuit = new Biscuit();
-                    biscuit.setName(biscuit.addName());
-                    biscuit.setWeight(biscuit.addWeight());
-                    all.add(biscuit);
+                    Facade facade = new Facade();
+                    all.add(facade.addBiscuitMenu());
                 }
                 case 2 -> {
-                    All chocolate = new Chocolate();
-                    chocolate.setName(chocolate.addName());
-                    chocolate.setWeight(chocolate.addWeight());
-                    all.add(chocolate);
+                    Facade facade = new Facade();
+                    all.add(facade.addChocolateMenu());
                 }
                 case 3 -> {
-                    All sweet = new Sweet();
-                    sweet.setName(sweet.addName());
-                    sweet.setWeight(sweet.addWeight());
-                    all.add(sweet);
+                    Facade facade = new Facade();
+                    all.add(facade.addSweetMenu());
                 }
                 case 4 -> {
-                    All marshmallow = new Marshmallow();
-                    marshmallow.setName(marshmallow.addName());
-                    marshmallow.setWeight(marshmallow.addWeight());
-                    all.add(marshmallow);
+                    Facade facade = new Facade();
+                    all.add(facade.addMarshmallowMenu());
                 }
                 case 5 -> {
                     saveFile(all);

@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2affbbc3-b31c-4fe9-ba55-293853708f7b" name="Changes" comment=".">
+      <change afterPath="$PROJECT_DIR$/src/Candy/Facade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Autorization/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autorization/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menu" beforeDir="false" afterPath="$PROJECT_DIR$/Menu" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/All.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/All.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Biscuit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Biscuit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Chocolate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Chocolate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Marshmallow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Marshmallow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Sweet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Sweet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +101,15 @@
       <workItem from="1701678738022" duration="8433000" />
       <workItem from="1701706192068" duration="1191000" />
       <workItem from="1701711631261" duration="556000" />
-      <workItem from="1701793359871" duration="21578000" />
+      <workItem from="1701793359871" duration="21955000" />
+      <workItem from="1701860296035" duration="580000" />
+      <workItem from="1701893917438" duration="597000" />
+      <workItem from="1701941974708" duration="591000" />
+      <workItem from="1701957561642" duration="599000" />
+      <workItem from="1701966225542" duration="571000" />
+      <workItem from="1702050353022" duration="596000" />
+      <workItem from="1702110223603" duration="1796000" />
+      <workItem from="1702196272220" duration="2565000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1696178742644</created>
@@ -175,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701824508265</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary=".">
+      <option name="closed" value="true" />
+      <created>1701845067392</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1701845067392</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +224,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Candy/Menu.java</url>
-          <line>223</line>
+          <line>215</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
