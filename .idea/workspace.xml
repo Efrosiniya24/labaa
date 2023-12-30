@@ -5,15 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2affbbc3-b31c-4fe9-ba55-293853708f7b" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/src/Candy/Facade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_12_2023_9_39_[Changes]1/LoginPassword" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_12_2023_9_39_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_12_2023_9_39__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoginPassword" beforeDir="false" afterPath="$PROJECT_DIR$/LoginPassword" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Menu" beforeDir="false" afterPath="$PROJECT_DIR$/Menu" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laba1.iml.zip" beforeDir="false" afterPath="$PROJECT_DIR$/laba1.iml.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Autorization/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autorization/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Autorization/IteratorUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autorization/IteratorUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Autorization/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autorization/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Autorization/SerializatorAuthorization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autorization/SerializatorAuthorization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Autorization/User/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autorization/User/Administrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Autorization/User/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autorization/User/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Autorization/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autorization/User/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Autorization/User/UserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Autorization/User/UserFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Candy/All.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/All.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Candy/Biscuit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Biscuit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Calculate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Calculate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Candy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Candy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Candy/Chocolate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Chocolate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Facade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/FacadeAddMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Candy/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Filter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Candy/Marshmallow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Marshmallow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Candy/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Candy/Sweet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Candy/Sweet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +47,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://C:/Program Files/java/openjdk-19.0.2/lib/src.zip!/java.base/java/util/ArrayList.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -109,7 +129,26 @@
       <workItem from="1701966225542" duration="571000" />
       <workItem from="1702050353022" duration="596000" />
       <workItem from="1702110223603" duration="1796000" />
-      <workItem from="1702196272220" duration="2565000" />
+      <workItem from="1702196272220" duration="7126000" />
+      <workItem from="1702282952238" duration="1107000" />
+      <workItem from="1702284097923" duration="8105000" />
+      <workItem from="1702323322985" duration="9125000" />
+      <workItem from="1702359549216" duration="1701000" />
+      <workItem from="1702369007504" duration="16986000" />
+      <workItem from="1702453006161" duration="856000" />
+      <workItem from="1702547464435" duration="538000" />
+      <workItem from="1702664856318" duration="2339000" />
+      <workItem from="1702722401145" duration="1533000" />
+      <workItem from="1702825165722" duration="5485000" />
+      <workItem from="1702901329754" duration="1786000" />
+      <workItem from="1703072400988" duration="596000" />
+      <workItem from="1703157272837" duration="3534000" />
+      <workItem from="1703175832683" duration="592000" />
+      <workItem from="1703531538078" duration="9966000" />
+      <workItem from="1703701326177" duration="2506000" />
+      <workItem from="1703783198190" duration="300000" />
+      <workItem from="1703828396668" duration="2966000" />
+      <workItem from="1703951727572" duration="1122000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1696178742644</created>
@@ -198,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701845067392</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary=".">
+      <option name="closed" value="true" />
+      <created>1702222918731</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1702222918731</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,12 +270,52 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Candy/Menu.java</url>
-          <line>215</line>
-          <option name="timeStamp" value="30" />
+          <url>file://$PROJECT_DIR$/src/Candy/Biscuit.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Candy/Biscuit.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Candy/Candy.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Candy/Candy.java</url>
+          <line>184</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Candy/Candy.java</url>
+          <line>185</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Autorization/Registration.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Autorization/Registration.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Autorization.User.Customer" memberName="present" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="user" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

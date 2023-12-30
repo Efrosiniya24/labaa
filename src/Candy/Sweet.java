@@ -1,64 +1,113 @@
 package Candy;
 
+import Autorization.User.User;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class Sweet extends All implements Serializable {    static ArrayList<All> marshmallow = new ArrayList<>();
+public class Sweet extends All implements Serializable {
     static List<All> sweet = new ArrayList<>();
-    static List<String> sweetGift = new ArrayList<>();
+    static List<All> sweetGift = new ArrayList<>();
+    static boolean b = true;
 
     @Override
     public boolean view(List<All> all) {
         int i = 1;
-        System.out.println("\n___Конфеты___: ");
-        for (All alls: all)
-            if(alls instanceof Sweet) {
+//        System.out.println("\n___Конфеты___: ");
+        for (All alls : all)
+            if (alls instanceof Sweet) {
                 System.out.println((i) + ") " + alls.getName() + " вес: " + alls.getWeight());
                 sweet.add(alls);
                 i++;
             }
-        if( i == 1) {
+        if (i == 1) {
             System.out.println("Конфет нет");
             return false;
-        }
-        else return true;
+        } else return true;
     }
+
     @Override
-    public void addGift(int i, All all){
+    public void addGift(int i, All all, User user) {
+        if (sweetGift.isEmpty()) {
+            for (int u = 0; u < user.getPresent().size(); u++) {
+                b = false;
+                if (user.getPresent().get(u) instanceof Sweet) {
+                    sweetGift.add(user.getPresent().get(u));
+                }
+            }
+        }
         if (!sweetGift.contains(all.getName())) {
-            sweetGift.add(all.getName());
+            sweetGift.add(all);
         }
     }
 
     @Override
-    public void changeCandyMenu(List<All> all, All sweet, int num){
+    public void changeCandyMenu(List<All> all, All sweet, int num) {
         all.set(num, sweet);
     }
+
     @Override
-    public void viewGift(){
-        System.out.println("\n___Конфеты___: ");
-        for (int i = 0; i < sweetGift.size(); i++)
-            System.out.println((i + 1) + ") " + sweetGift.get(i));
+    public List<All> present() {
+        return sweet;
     }
 
     @Override
-    public void delete(List<All> all,int i) {
-        all.remove(i);
+    public void viewGift(User user) {
+        List<String> name = new ArrayList<>();
+        List<Double> allWeight = new ArrayList<>();
+        System.out.println("\n___Конфеты___: ");
+        sweetGift.clear();
+        for (int i = 0; i < user.getPresent().size(); i++) {
+            if (user.getPresent().get(i) instanceof Sweet)
+                sweetGift.add(user.getPresent().get(i));
+        }
+        if (sweetGift.isEmpty())
+            System.out.println("Конфет нет");
+        else {
+            for(int i = 0; i <sweetGift.size(); i++){
+                if(!name.contains(sweetGift.get(i).getName())) {
+                    name.add(sweetGift.get(i).getName());
+                    allWeight.add(sweetGift.get(i).getAllWeightPresent());
+                }
+                else
+                {
+                    for(int u = 0; u<name.size();u++){
+                        if(name.get(u).equals(sweetGift.get(i).getName())){
+                            allWeight.set(u, (allWeight.get(u)+sweetGift.get(i).getAllWeightPresent()));
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < name.size(); i++)
+                System.out.println((i + 1) + ") " + name.get(i) + " " + allWeight.get(i) + "г");    }
+    }
+
+    @Override
+    public void delete(List<All> all, int i) {
+        int size = all.size();
+        for (int u = 0; u < size; u++) {
+            if (all.get(u) instanceof Sweet) {
+                if (u == i) {
+                    all.remove(all.get(u));
+                    return;
+                }
+            }
+        }
     }
 
     @Override
     public int chooseNumber() {
-        if(!sweet.isEmpty()) {
+        if (!sweet.isEmpty()) {
             Scanner sc = new Scanner(System.in);
-            int number = 0;
+            int number;
             while (true) {
                 System.out.print("Введите номер печенья: ");
                 try {
                     number = sc.nextInt();
-                    if (number >= sweet.size())
+                    if (number > sweet.size())
                         System.out.println("Таких конфет нет( Повторите ввод...");
                     else break;
                 } catch (InputMismatchException e) {
@@ -68,11 +117,12 @@ public class Sweet extends All implements Serializable {    static ArrayList<All
             }
             return number - 1;
         }
-        return 0;
+        System.out.println("Корзина пустая");
+        return -1;
     }
 
     @Override
-    public double choose(List<All> all) {
+    public double choose(List<All> all, User user) {
         Scanner sc = new Scanner(System.in);
         int operation;
         int amount;
@@ -103,10 +153,11 @@ public class Sweet extends All implements Serializable {    static ArrayList<All
                     }
                 }
 
-                addGift(operation, sweet.get(operation - 1));
-
+                addGift(operation, sweet.get(operation - 1), user);
+//                allWeihgt += (amount * sweet.get(operation - 1).getWeight());
                 allWeihgt += (amount * sweet.get(operation - 1).getWeight());
-
+                sweet.get(operation - 1).setAllWeightPresent(allWeihgt);
+//                sweetGift.get(operation-1).setWeight(allWeihgt);
                 System.out.println("Продолжить?\n 1)Да\n 2)Нет");
 
                 while (true) {

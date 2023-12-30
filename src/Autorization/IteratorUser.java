@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class IteratorUser<User> implements Iterator<User> {
-    private List<User> users = new ArrayList<>();
+    private List<User> users;
     private int position;
 
     public IteratorUser(List<User> users, int position) {

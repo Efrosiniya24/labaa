@@ -1,5 +1,7 @@
 package Candy;
 
+import Autorization.User.User;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -24,8 +26,9 @@ public class Candy {
     private static boolean useN;
     private static int sort;
     private static boolean cancelSort;
+    private static List<All> present1 = new ArrayList<>();
 
-    public void makeGift() throws InterruptedException {
+    public User makeGift(User user) throws InterruptedException, IOException, ClassNotFoundException {
         int operation;
 
         try {
@@ -39,17 +42,25 @@ public class Candy {
 
         all2.clear();
         all2.addAll(all);
-        while (true) {
 
-            System.out.println("Меню:\n 1)Фильтры\n 2)Отсортировать\n 3)Отменить сортировку\n 4)Выбрать сладости\n 5)Выход\n");
+        while (true) {
+            System.out.println(""" 
+                    Меню:
+                    1)Фильтры
+                    2)Сортировка
+                    3)Отмена сортировки
+                    4)Выбор сладостей
+                    5)Выход
+                    """);
             operation = inputOperation();
             switch (operation) {
                 case 1 -> useFilter();
                 case 2 -> sort();
                 case 3 -> cancelSorting();
-                case 4 -> chooseCandy();
+                case 4 -> chooseCandy(user);
                 case 5 -> {
-                    return;
+                    user.setPresent(present1);
+                    return user;
                 }
             }
         }
@@ -58,7 +69,7 @@ public class Candy {
     public static void useFilter() throws InterruptedException {
         int operation;
         Filter filter = null;
-        while(true) {
+        while (true) {
             System.out.println("1)Использовать фильтры\n 2)Сбросить фильтры\n");
             int u = inputOperation();
             if (u == 1 || u == 2) {
@@ -86,8 +97,9 @@ public class Candy {
         }
     }
 
-    public static void chooseCandy() {
+    public static List<All> chooseCandy(User user) {
         Scanner sc = new Scanner(System.in);
+
         int operation = 0;
         while (true) {
             System.out.println("Выберите тип сладостей:\n 1) Печенье\n 2) Шоколад\n 3) Зефир\n 4) Конфеты\n 5) Выход");
@@ -97,71 +109,129 @@ public class Candy {
                 sc.next();
             }
             switch (operation) {
-                case 1 -> weightt[0] += biscuit.choose(all2);
-                case 2 -> weightt[1] += chocolate.choose(all2);
-                case 3 -> weightt[2] += marshmallow.choose(all2);
-                case 4 -> weightt[3] += sweet.choose(all2);
+                case 1 -> {
+                    weightt[0] += biscuit.choose(all2, user);
+                }
+                case 2 -> {
+                    weightt[1] += chocolate.choose(all2, user);
+                }
+                case 3 -> {
+                    weightt[2] += marshmallow.choose(all2, user);
+                }
+                case 4 -> {
+                    weightt[3] += sweet.choose(all2, user);
+                }
                 case 5 -> {
-                    return;
+                    present1.clear();
+                    if (Biscuit.biscuitsGift != null)
+                        present1.addAll(Biscuit.biscuitsGift);
+                    if (Chocolate.chocolateGift != null)
+                        present1.addAll(Chocolate.chocolateGift);
+                    if (Marshmallow.marshmallowGift != null)
+                        present1.addAll(Marshmallow.marshmallowGift);
+                    if (Sweet.sweetGift != null)
+                        present1.addAll(Sweet.sweetGift);
+                    user.setPresent(present1);
+                    return present1;
                 }
             }
         }
     }
 
-    public void count() {
+    public void count(User user) {
+        double weight = 0;
         Scanner sc = new Scanner(System.in);
         Calculate result = ((n) -> {
             double w1 = 0;
-            for (int i = 0; i < 4; i++)
-                w1 += n[i];
+            if (user.getPresent() == null)
+                return 0;
+//            for (int i = 0; user.getPresent().get(i).getName() != null; i++)
+//                w1 += user.getPresent().get(i).getAllWeightPresent();
+            int size = user.getPresent().size();
+            for (int i = 0; i < size; i++) {
+                w1 += user.getPresent().get(i).getAllWeightPresent();
+            }
             return w1;
         });
 
-        if (result.func(weightt) == 0) {
+
+        if (result.func(user) == 0) {
+//        for (int i = 0; i < user.getPresent().size(); i++) {
+//            weight += user.getPresent().get(i).getAllWeightPresent();
+//        }
+//            if (weight == 0) {
             System.out.println("Вы еще не добавили сладости в подарок.Желаете добавить?\n 1)Да\n 2)Нет\n");
             while (true) {
                 int operation;
                 try {
                     operation = sc.nextInt();
                     if (operation == 1) {
-                        makeGift();
+                        makeGift(user);
                         return;
                     } else if (operation == 2)
                         break;
-                } catch (InputMismatchException | InterruptedException e) {
+                } catch (InputMismatchException | InterruptedException | IOException | ClassNotFoundException e) {
                     System.out.print("Повторите ввод: ");
                 }
             }
         } else
-            System.out.println("Общий вес подарка: " + result.func(weightt));
+            System.out.println("Общий вес подарка: " + result.func(user));
+//                System.out.println("Общий вес подарка: " + weight);
+
     }
 
-    public void view() {
+    public void view(User user) {
         boolean t = true;
-        for (int i = 0; i < 4; i++) {
-            if (weightt[i] != 0) {
-                t = false;
-                switch (i) {
-                    case 0 -> {
-                        All biscuit = new Biscuit();
-                        biscuit.viewGift();
-                    }
-                    case 1 -> {
-                        All cake = new Chocolate();
-                        cake.viewGift();
-                    }
-                    case 2 -> {
-                        All marshmallow = new Marshmallow();
-                        marshmallow.viewGift();
-                    }
-                    case 3 -> {
-                        All sweet = new Sweet();
-                        sweet.viewGift();
-                    }
-                }
-                System.out.println("Общий вес: " + weightt[i] + "\n");
-            }
+        double weightt = 0;
+        int size = user.getPresent().size();
+        for (int i = 0; i < size; i++) {
+            weightt += user.getPresent().get(i).getAllWeightPresent();
         }
+        if (weightt != 0) {
+            t = false;
+            All biscuit = new Biscuit();
+            if (biscuit.present() != null)
+                biscuit.viewGift(user);
+
+            All cake = new Chocolate();
+            if (cake.present() != null)
+                cake.viewGift(user);
+
+            All marshmallow = new Marshmallow();
+            if (marshmallow.present() != null)
+                marshmallow.viewGift(user);
+
+            All sweet = new Sweet();
+            if (sweet.present() != null)
+                sweet.viewGift(user);
+
+            System.out.println("Общий вес: " + weightt + "\n");
+
+        }
+//        for (int i = 0; i < 4; i++) {
+//            if (weight != 0) {
+//                t = false;
+//                switch (i) {
+//                    case 0 -> {
+//                        All biscuit = new Biscuit();
+//                        if(biscuit.present()!=null)
+//                            biscuit.viewGift(user);
+//                    }
+//                    case 1 -> {
+//                        All cake = new Chocolate();
+//                        cake.viewGift(user);
+//                    }
+//                    case 2 -> {
+//                        All marshmallow = new Marshmallow();
+//                        marshmallow.viewGift(user);
+//                    }
+//                    case 3 -> {
+//                        All sweet = new Sweet();
+//                        sweet.viewGift(user);
+//                    }
+//                }
+
+
         if (t) System.out.println("Вы не собрали подарок");
     }
 
@@ -170,15 +240,14 @@ public class Candy {
         all2.clear();
         if (useName == 0 && useWeight == 0 && !cancelSort) {
             all2.addAll(all);
-            if (sort==1) sort1();
-            else if (sort ==2) sort2();
+            if (sort == 1) sort1();
+            else if (sort == 2) sort2();
             return filter;
         } else if ((useName == 0 || useWeight == 0) && !cancelSort) {
             all2.addAll(all);
             if (sort == 1) sort1();
-            else if( sort == 2) sort2();
-        }
-        else if (cancelSort)
+            else if (sort == 2) sort2();
+        } else if (cancelSort)
             all2.addAll(all);
         else
             all2.addAll(all3);

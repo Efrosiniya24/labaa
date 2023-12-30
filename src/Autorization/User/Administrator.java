@@ -14,12 +14,12 @@ import Candy.*;
 
 public class Administrator extends User {
 
-    public Administrator(String login, String password, boolean ban) {
-        super(login, password, ban);
+    public Administrator(String login, String password, boolean ban, List<All> present) {
+        super(login, password, ban, present);
     }
 
     @Override
-    public void reviewMenu() throws IOException, ClassNotFoundException {
+    public User reviewMenu(User user) throws IOException, ClassNotFoundException {
         Scanner sc = new Scanner(System.in);
         int operation = 0;
         while (true) {
@@ -31,8 +31,7 @@ public class Administrator extends User {
                     4)Изменить данные о пользователе
                     5)Удалить пользователя
                     6)Блоктровать пользователей
-                    7)Выход из функционала администратора
-                    8) Выход из системы""");
+                    7)Выход из функционала администратора""");
             try {
                 operation = sc.nextInt();
             } catch (InputMismatchException e) {
@@ -47,12 +46,9 @@ public class Administrator extends User {
                 case 5 -> Entry.deleteUser();
                 case 6 -> Entry.banUser();
                 case 7 -> {
-                    return;
+                    return user;
                 }
-
             }
-            List<All> all2 = new ArrayList<>(Serializator.deserialization());
-            System.out.println(all2);
         }
     }
 }

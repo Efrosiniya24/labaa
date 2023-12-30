@@ -2,6 +2,7 @@ package Autorization;
 
 import Autorization.User.Customer;
 import Autorization.User.User;
+import Candy.All;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -12,13 +13,16 @@ import java.util.Scanner;
 
 public class Registration implements Serializable {
     static List<User> users = new ArrayList<>();
-    public static void registration() throws IOException, ClassNotFoundException, InterruptedException {
+
+    public static List<User> registration() throws IOException, ClassNotFoundException, InterruptedException {
         Scanner sc = new Scanner(System.in);
         int operation = 0;
         while (true) {
             System.out.print("Введите логин:");
             String login = sc.nextLine();
+
             String password;
+            List<All> p = new ArrayList<>();
             while (true) {
                 String password1;
                 System.out.print("Введите пароль:");
@@ -33,7 +37,7 @@ public class Registration implements Serializable {
             users = SerializatorAuthorization.deserialization();
             for (User user : users) {
                 if (user.getPassword().equals(password) && user.getLogin().equals(login) || password.equals("1111") && login.equals("admin")) {
-                    System.out.println("Такой пользовтель уже существует. Вы желаете войти в систему или зарегистрироваться?/n 1)Войти/n 2)Зарегистрироваться заново");
+                    System.out.println("Такой пользовтель уже существует. Вы желаете войти в систему или зарегистрироваться?\n 1)Войти\n 2)Зарегистрироваться заново");
                     while (true) {
                         try {
                             operation = sc.nextInt();
@@ -45,17 +49,19 @@ public class Registration implements Serializable {
                         }
                     }
                     if (operation == 1) {
-                        Entry.operations(login, password);
+                        p.addAll(user.getPresent());
+                        Entry.operations(login, password, p);
                     } else break;
                 }
             }
             if (operation != 2) {
-                User customer = new Customer(login, password, false);
+                User customer = new Customer(login, password, false, p);
                 users.add(customer);
                 SerializatorAuthorization.serialization(users);
                 System.out.println("Регистрация проведена успешно. Вы вошли в систему в качестве пользователя.");
-                Entry.operations(login, password);
-                return;
+                Entry.operations(login, password, p);
+                SerializatorAuthorization.serialization(users);
+                return users;
             }
         }
     }

@@ -36,19 +36,19 @@ public class Menu implements Serializable {
 
             switch (operation) {
                 case 1 -> {
-                    Facade facade = new Facade();
+                    FacadeAddMenu facade = new FacadeAddMenu();
                     all.add(facade.addBiscuitMenu());
                 }
                 case 2 -> {
-                    Facade facade = new Facade();
+                    FacadeAddMenu facade = new FacadeAddMenu();
                     all.add(facade.addChocolateMenu());
                 }
                 case 3 -> {
-                    Facade facade = new Facade();
+                    FacadeAddMenu facade = new FacadeAddMenu();
                     all.add(facade.addSweetMenu());
                 }
                 case 4 -> {
-                    Facade facade = new Facade();
+                    FacadeAddMenu facade = new FacadeAddMenu();
                     all.add(facade.addMarshmallowMenu());
                 }
                 case 5 -> {
@@ -57,7 +57,6 @@ public class Menu implements Serializable {
                 }
             }
         }
-
     }
 
     public void deleteMenu() throws IOException, ClassNotFoundException {
@@ -91,8 +90,8 @@ public class Menu implements Serializable {
                     All chocolate = new Chocolate();
                     chocolate.view(all);
                     int num = chocolate.chooseNumber();
-                    if(num != 0)
-                        chocolate.delete(all,num);
+                    if (num != -1)
+                        chocolate.delete(all, num);
                     else
                         System.out.println("Шоколада нет...");
                 }
@@ -100,17 +99,17 @@ public class Menu implements Serializable {
                     All sweet = new Sweet();
                     sweet.view(all);
                     int num = sweet.chooseNumber();
-                    if(num != 0)
-                        sweet.delete(all,num);
+                    if (num != -1)
+                        sweet.delete(all, num);
                     else
                         System.out.println("Конфет нет...");
                 }
                 case 4 -> {
                     All marshmallow = new Marshmallow();
                     marshmallow.view(all);
-                    int num =marshmallow.chooseNumber();
-                    if(num != 0)
-                        marshmallow.delete(all,num);
+                    int num = marshmallow.chooseNumber();
+                    if (num != -1)
+                        marshmallow.delete(all, num);
                     else
                         System.out.println("Зефира нет...");
                 }
@@ -148,8 +147,7 @@ public class Menu implements Serializable {
                         biscuit.setName(biscuit.addName());
                         biscuit.setWeight(biscuit.addWeight());
                         biscuit.changeCandyMenu(all, biscuit, num);
-                    }
-                    else
+                    } else
                         System.out.println("Печенья нет...");
                 }
                 case 2 -> {
@@ -160,8 +158,7 @@ public class Menu implements Serializable {
                         chocolate.setName(chocolate.addName());
                         chocolate.setWeight(chocolate.addWeight());
                         chocolate.changeCandyMenu(all, chocolate, num);
-                    }
-                    else
+                    } else
                         System.out.println("Шоколада нет...");
                 }
                 case 3 -> {
@@ -172,20 +169,18 @@ public class Menu implements Serializable {
                         sweet.setName(sweet.addName());
                         sweet.setWeight(sweet.addWeight());
                         sweet.changeCandyMenu(all, sweet, num);
-                    }
-                    else
+                    } else
                         System.out.println("Конфет нет...");
                 }
                 case 4 -> {
                     All marshmallow = new Marshmallow();
                     marshmallow.view(all);
-                    int num =marshmallow.chooseNumber();
+                    int num = marshmallow.chooseNumber();
                     if (num != -1) {
                         marshmallow.setName(marshmallow.addName());
                         marshmallow.setWeight(marshmallow.addWeight());
                         marshmallow.changeCandyMenu(all, marshmallow, num);
-                    }
-                    else
+                    } else
                         System.out.println("Зефира нет...");
                 }
                 case 5 -> {
@@ -199,23 +194,19 @@ public class Menu implements Serializable {
     public static void saveFile(List<All> all) throws IOException, ClassNotFoundException {
         int operation;
         List<All> all2 = new ArrayList<>();
-        System.out.println(all);
         while (true) {
             System.out.println("Сохранить меню?\n 1)Да\n 2)Нет");
             operation = inputOperation();
             if (operation == 1) {
                 try {
                     Serializator.serialization(all);
-                    System.out.println(all);
                     System.out.println("Данные записаны в файл");
                     return;
                 } catch (IOException e) {
                     System.err.println("Ошибка ввода-вывода\n");
                 }
                 all2.addAll(Serializator.deserialization());
-                System.out.println(all2);
-            }
-            else if (operation == 2)
+            } else if (operation == 2)
                 return;
         }
     }

@@ -1,5 +1,7 @@
 package Candy;
 
+import Autorization.User.User;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -8,7 +10,8 @@ import java.util.Scanner;
 
 public class Marshmallow extends All implements Serializable {
     static List<All> marshmallow = new ArrayList<>();
-    static List<String> marshmallowGift = new ArrayList<>();
+    static List<All> marshmallowGift = new ArrayList<>();
+    static boolean b = true;
 
     @Override
     public boolean view(List<All> all) {
@@ -26,38 +29,84 @@ public class Marshmallow extends All implements Serializable {
     }
 
     @Override
-    public void addGift(int i, All all) {
+    public void addGift(int i, All all, User user) {
+        if(marshmallowGift.isEmpty()) {
+            for (int u = 0; u < user.getPresent().size(); u++) {
+                b =  false;
+                if (user.getPresent().get(u) instanceof Biscuit) {
+                    marshmallowGift.add(user.getPresent().get(u));
+                }
+            }
+        }
         if (!marshmallowGift.contains(all.getName())) {
-            marshmallowGift.add(all.getName());
+            marshmallowGift.add(all);
         }
     }
 
     @Override
-    public void changeCandyMenu(List<All> all, All marshmallow, int num){
+    public void changeCandyMenu(List<All> all, All marshmallow, int num) {
         all.set(num, marshmallow);
     }
 
     @Override
-    public void viewGift() {
-        System.out.println("\n___Зефир___: ");
-        for (int i = 0; i < marshmallowGift.size(); i++)
-            System.out.println((i + 1) + ") " + marshmallowGift.get(i));
+    public List<All> present() {
+        return marshmallow;
     }
 
     @Override
-    public void delete(List<All> all,int i){  all.remove(i);
+    public void viewGift(User user) {
+        List<String> name = new ArrayList<>();
+        List<Double> allWeight = new ArrayList<>();
+        System.out.println("\n___Зефир___: ");
+        marshmallowGift.clear();
+        for (int i = 0; i < user.getPresent().size(); i++) {
+            if (user.getPresent().get(i) instanceof Marshmallow)
+                marshmallowGift.add(user.getPresent().get(i));
+        }
+        if (marshmallowGift.isEmpty())
+            System.out.println("Зефира нет");
+        else {
+            for(int i = 0; i <marshmallowGift.size(); i++){
+                if(!name.contains(marshmallowGift.get(i).getName())) {
+                    name.add(marshmallowGift.get(i).getName());
+                    allWeight.add(marshmallowGift.get(i).getAllWeightPresent());
+                }
+                else
+                {
+                    for(int u = 0; u<name.size();u++){
+                        if(name.get(u).equals(marshmallowGift.get(i).getName())){
+                            allWeight.set(u, (allWeight.get(u)+marshmallowGift.get(i).getAllWeightPresent()));
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < name.size(); i++)
+                System.out.println((i + 1) + ") " + name.get(i) + " " + allWeight.get(i) + "г");    }
+    }
+
+    @Override
+    public void delete(List<All> all, int i) {
+        int u = 0;
+        for (All alls : all)
+            if (alls instanceof Marshmallow) {
+                if (u == i) {
+                    all.remove(alls);
+                    break;
+                }
+                u++;
+            }
     }
 
     @Override
     public int chooseNumber() {
-        if(!marshmallow.isEmpty()) {
+        if (!marshmallow.isEmpty()) {
             Scanner sc = new Scanner(System.in);
-            int number = 0;
+            int number;
             while (true) {
-                System.out.print("Введите номер печенья: ");
+                System.out.print("Введите номер зефира: ");
                 try {
                     number = sc.nextInt();
-                    if (number >= marshmallow.size())
+                    if (number > marshmallow.size())
                         System.out.println("Такого зефира нет( Повторите ввод...");
                     else break;
                 } catch (InputMismatchException e) {
@@ -67,11 +116,11 @@ public class Marshmallow extends All implements Serializable {
             }
             return number - 1;
         }
-        return 0;
+        return -1;
     }
 
     @Override
-    public double choose(List<All> all) {
+    public double choose(List<All> all, User user) {
         Scanner sc = new Scanner(System.in);
         int operation;
         int amount;
@@ -102,10 +151,9 @@ public class Marshmallow extends All implements Serializable {
                     }
                 }
 
-                addGift(operation, marshmallow.get(operation - 1));
-
+                addGift(operation, marshmallow.get(operation - 1), user);
                 allWeihgt += (amount * marshmallow.get(operation - 1).getWeight());
-
+                marshmallow.get(operation - 1).setAllWeightPresent(allWeihgt);
                 System.out.println("Продолжить?\n 1)Да\n 2)Нет");
 
                 while (true) {

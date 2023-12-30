@@ -2,21 +2,25 @@ package Autorization.User;
 
 import Candy.Candy;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
-public class Customer extends User {
+import Candy.All;
 
-    public Customer(String login, String password, boolean ban) {
-        super(login, password, ban);
+public class Customer extends User {
+    public Customer(String login, String password, boolean ban, List<All> present) {
+        super(login, password, ban, present);
     }
 
     @Override
-    public void reviewMenu() throws InterruptedException {
+    public User reviewMenu(User user) throws InterruptedException, IOException, ClassNotFoundException {
         Scanner sc = new Scanner(System.in);
         int operation = 0;
-        while(true) {
+        while (true) {
             System.out.println("""
                     Меню:
                      1)Собрать подарок
@@ -29,14 +33,15 @@ public class Customer extends User {
                 sc.next();
             }
             Candy candy = new Candy();
+
             switch (operation) {
-                case 1 -> candy.makeGift();
-                case 2 -> candy.count();
-                case 3 -> candy.view();
-                case 4 -> {return ;}
+                case 1 -> user = candy.makeGift(user);
+                case 2 -> candy.count(user);
+                case 3 -> candy.view(user);
+                case 4 -> {
+                    return user;
+                }
             }
         }
     }
-
-
 }

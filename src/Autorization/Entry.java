@@ -5,6 +5,7 @@ import Autorization.User.Administrator;
 import Autorization.User.Customer;
 import Autorization.User.User;
 import Autorization.User.UserFactory;
+import Candy.All;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -47,27 +48,29 @@ public class Entry implements Serializable {
                     System.out.println("Введите целое число");
                 }
             }
-            if (operation == 1)
+            if (operation == 1) {
                 Registration.registration();
+                SerializatorAuthorization.serialization(users);
+            }
         } else {
             if (!users.get(indexUser).getBan()) {
+                User user = operations(login, password, users.get(indexUser).getPresent());
+                users.set(indexUser, user);
                 indexUser = -1;
-                operations(login, password);
-
             } else System.out.println("К сожалению, мы не можем предоставить Вам доступ. Вы заблокированы");
         }
+        SerializatorAuthorization.serialization(users);
     }
 
-    public static void operations(String login, String password) throws InterruptedException, IOException, ClassNotFoundException {
+    public static User operations(String login, String password, List<All> present) throws InterruptedException, IOException, ClassNotFoundException {
         UserFactory userFactory = new UserFactory();
         User user;
-        if (password.equals("1111") && login.equals("admin")) {
-            user = userFactory.createUser("administrator", login, password, false);
-            user.reviewMenu();
-        } else {
-            user = userFactory.createUser("customer", login, password, false);
-            user.reviewMenu();
-        }
+        if (password.equals("1111") && login.equals("admin"))
+            user = userFactory.createUser("administrator", login, password, false, present);
+        else
+            user = userFactory.createUser("customer", login, password, false, present);
+        user.reviewMenu(user);
+        return user;
     }
 
     public static void changeUser() throws IOException, ClassNotFoundException {
@@ -75,102 +78,90 @@ public class Entry implements Serializable {
         int operation;
         String login;
         String password;
+        String password1;
         List<User> users = SerializatorAuthorization.deserialization();
         if (users != null) {
-            System.out.println("№  Логин          Пароль       Бан");
-            IteratorUser<User> iterator = new IteratorUser<>(users, 0);
-            for (int i = 0; iterator.hasNext(); i++) {
-                User user = iterator.next();
-                System.out.println((i + 1) + ") " + user.getLogin() + "          " + user.getPassword() + "       " + user.getBan());
-            }
+            viewUsers(users);
             System.out.print("Введите номер пользователя: ");
+            operation = printNumber(users);
+            System.out.print("Введите логин:");
+            login = sc.nextLine();
 
             while (true) {
-                try {
-                    operation = sc.nextInt();
-                    if (operation > users.size())
-                        System.out.println("Неверный номер");
-                    else break;
-                } catch (InputMismatchException e) {
-                    System.out.println("Введите целове число");
-                }
+                System.out.println("Введите новый логин и пароль\n");
+                System.out.print("Введите пароль:");
+                password = sc.nextLine();
+                System.out.print("Введите повторный пароль:");
+                password1 = sc.nextLine();
+                if (!password1.equals(password))
+                    System.out.println("Повторный пароль был введен неверно. Повторите операции заново");
+                else break;
             }
-
-            System.out.print("Введите новый логие и пароль.\nЛогин: ");
-            login = sc.next();
-            System.out.print("Пароль:");
-            password = sc.next();
 
             UserFactory userFactory = new UserFactory();
             User user;
             if (users.get(operation - 1) instanceof Customer)
-                user = userFactory.createUser("customer",login, password, users.get(operation - 1).getBan());
-            else user = userFactory.createUser("administrator",login, password, users.get(operation - 1).getBan());
+                user = userFactory.createUser("customer", login, password, users.get(operation - 1).getBan(), users.get(operation - 1).getPresent());
+            else
+                user = userFactory.createUser("administrator", login, password, users.get(operation - 1).getBan(), null);
             users.set(operation - 1, user);
             SerializatorAuthorization.serialization(users);
-            System.out.println(user);
         }
     }
 
     public static void deleteUser() throws IOException, ClassNotFoundException {
-        Scanner sc = new Scanner(System.in);
         int operation;
         List<User> users = SerializatorAuthorization.deserialization();
         if (users != null) {
-            System.out.println("№  Логин          Пароль       Бан");
-            IteratorUser<User> iterator = new IteratorUser<>(users, 0);
-            for (int i = 0; iterator.hasNext(); i++) {
-                User user = iterator.next();
-                System.out.println((i + 1) + ") " + user.getLogin() + "          " + user.getPassword() + "       " + user.getBan());
-            }
+            viewUsers(users);
             System.out.print("Введите номер пользователя: ");
+            operation = printNumber(users);
 
-            while (true) {
-                try {
-                    operation = sc.nextInt();
-                    if (operation > users.size())
-                        System.out.println("Неверный номер");
-                    else break;
-                } catch (InputMismatchException e) {
-                    System.out.println("Введите целове число");
-                }
-            }
             users.remove(operation - 1);
             SerializatorAuthorization.serialization(users);
         }
     }
 
     public static void banUser() throws IOException, ClassNotFoundException {
-        Scanner sc = new Scanner(System.in);
         int operation;
         List<User> users = SerializatorAuthorization.deserialization();
         if (users != null) {
-            System.out.println("№  Логин          Пароль       Бан");
-            IteratorUser<User> iterator = new IteratorUser<>(users, 0);
-            for (int i = 0; iterator.hasNext(); i++) {
-                User user = iterator.next();
-                System.out.println((i + 1) + ") " + user.getLogin() + "          " + user.getPassword() + "       " + user.getBan());
-            }
+            viewUsers(users);
             System.out.print("Введите номер пользователя для смены блокировки: ");
+            operation = printNumber(users);
 
-            while (true) {
-                try {
-                    operation = sc.nextInt();
-                    if (operation > users.size())
-                        System.out.println("Неверный номер");
-                    else break;
-                } catch (InputMismatchException e) {
-                    System.out.println("Введите целове число");
-                }
-            }
             UserFactory userFactory = new UserFactory();
             User user;
             if (users.get(operation - 1) instanceof Customer)
-                user = userFactory.createUser("customer", users.get(operation - 1).getLogin(), users.get(operation - 1).getPassword(), !users.get(operation - 1).getBan());
+                user = userFactory.createUser("customer", users.get(operation - 1).getLogin(), users.get(operation - 1).getPassword(), !users.get(operation - 1).getBan(), users.get(operation - 1).getPresent());
             else
-                user = userFactory.createUser("administrator", users.get(operation - 1).getLogin(), users.get(operation - 1).getPassword(), !users.get(operation - 1).getBan());
+                user = userFactory.createUser("administrator", users.get(operation - 1).getLogin(), users.get(operation - 1).getPassword(), !users.get(operation - 1).getBan(), null);
             users.set(operation - 1, user);
             SerializatorAuthorization.serialization(users);
+        }
+    }
+
+    private static void viewUsers(List<User> users) {
+        IteratorUser<User> iterator = new IteratorUser<>(users, 0);
+        System.out.println("№  Логин          Пароль       Бан");
+        for (int i = 0; iterator.hasNext(); i++) {
+            User user = iterator.next();
+            System.out.println((i + 1) + ") " + user.getLogin() + "          " + user.getPassword() + "       " + user.getBan());
+        }
+    }
+
+    private static int printNumber(List<User> users) {
+        Scanner sc = new Scanner(System.in);
+        int operation;
+        while (true) {
+            try {
+                operation = sc.nextInt();
+                if (operation > users.size())
+                    System.out.println("Неверный номер");
+                else return operation;
+            } catch (InputMismatchException e) {
+                System.out.println("Введите целове число");
+            }
         }
     }
 }

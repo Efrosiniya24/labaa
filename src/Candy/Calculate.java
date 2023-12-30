@@ -1,5 +1,7 @@
 package Candy;
 
+import Autorization.User.User;
+
 public interface Calculate {
-    double func(double[] n);
+    double func(User user);
 }

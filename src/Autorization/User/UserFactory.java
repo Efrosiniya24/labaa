@@ -1,11 +1,15 @@
 package Autorization.User;
 
+import Candy.All;
+
+import java.util.List;
+
 public class UserFactory {
-    public User createUser(String name, String login, String password, boolean ban) {
+    public User createUser(String name, String login, String password, boolean ban, List<All> present) {
         if(name.equals("customer"))
-            return new Customer(login,password, ban);
+            return new Customer(login,password, ban, present);
         else if(name.equals("administrator"))
-            return new Administrator(login,password, ban);
+            return new Administrator(login,password, ban, null);
         else return null;
     }
 }

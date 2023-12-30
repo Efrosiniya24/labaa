@@ -1,24 +1,44 @@
 package Autorization.User;
 
+import Candy.All;
+
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class User implements Serializable {
     private String login;
     private String password;
     private boolean ban;
+    private List<All> present;
 
-    public User(String login, String password, boolean ban) {
-
+    public User(String login, String password, boolean ban, List<All> present) {
         this.login = login;
         this.password = password;
         this.ban = ban;
+        this.present = present;
     }
 
-//    public  void changeUser(List<User> users, int num, User user){
-//        users.set(num, user);
-//    }
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isBan() {
+        return ban;
+    }
+
+    public List<All> getPresent() {
+        return present;
+    }
+
+    public void setPresent(List<All> present) {
+        this.present = present;
+    }
 
     public String getLogin() {
         return login;
@@ -35,6 +55,7 @@ public abstract class User implements Serializable {
     public String getPassword() {
         return password;
     }
-    public abstract void reviewMenu() throws InterruptedException, IOException, ClassNotFoundException;
+
+    public abstract User reviewMenu(User user) throws InterruptedException, IOException, ClassNotFoundException;
 
 }

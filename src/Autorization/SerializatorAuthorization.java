@@ -7,13 +7,14 @@ import java.util.List;
 
 public class SerializatorAuthorization {
     public static void serialization(List<User> users) throws IOException {
-        try(FileOutputStream fileOutputStream = new FileOutputStream("LoginPassword");
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)){
+        try (FileOutputStream fileOutputStream = new FileOutputStream("LoginPassword");
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
             objectOutputStream.writeObject(users);
         } catch (IOException e) {
             System.out.println("Ошибка");
         }
     }
+
     public static List<User> deserialization() throws IOException, ClassNotFoundException {
         List<User> users = null;
         try (FileInputStream fileInputStream = new FileInputStream("LoginPassword");

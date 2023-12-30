@@ -2,6 +2,7 @@
 // Создать несколько объектов-конфет. Собрать детский подарок с определением его веса.
 
 //import Autorization.Entry;
+
 import Autorization.Entry;
 import Autorization.Registration;
 import Autorization.SerializatorAuthorization;
@@ -16,9 +17,11 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
         Scanner sc = new Scanner(System.in);
+//        List<User> user = new ArrayList<>();
+//        user.add(new Administrator("admin", "1111", false, null));
+//        SerializatorAuthorization.serialization(user);
         int operation = 0;
-
-        while(true) {
+        while (true) {
             System.out.println("Меню:\n 1)Вход\n 2)Регистрация\n 3)Выход");
             try {
                 operation = sc.nextInt();
@@ -29,7 +32,9 @@ public class Main {
             switch (operation) {
                 case 1 -> Entry.entry();
                 case 2 -> Registration.registration();
-                case 3 -> {return ;}
+                case 3 -> {
+                    return;
+                }
             }
         }
     }

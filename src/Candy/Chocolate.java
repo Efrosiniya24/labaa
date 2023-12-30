@@ -1,5 +1,7 @@
 package Candy;
 
+import Autorization.User.User;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -8,7 +10,8 @@ import java.util.Scanner;
 
 public class Chocolate extends All implements Serializable {
     static List<All> chocolate = new ArrayList<>();
-    static List<String> chocolateGift = new ArrayList<>();
+    static List<All> chocolateGift = new ArrayList<>();
+    static  boolean b = true;
 
     @Override
     public boolean view(List<All> all) {
@@ -31,22 +34,67 @@ public class Chocolate extends All implements Serializable {
     }
 
     @Override
-    public void addGift(int i, All all) {
+    public List<All> present() {
+        return chocolate;
+    }
+
+    @Override
+    public void addGift(int i, All all, User user) {
+        if(chocolateGift.isEmpty()) {
+            for (int u = 0; u < user.getPresent().size(); u++) {
+                b =  false;
+                if (user.getPresent().get(u) instanceof Biscuit) {
+                    chocolateGift.add(user.getPresent().get(u));
+                }
+            }
+        }
         if (!chocolateGift.contains(all.getName())) {
-            chocolateGift.add(all.getName());
+            chocolateGift.add(all);
         }
     }
 
     @Override
-    public void viewGift() {
+    public void viewGift(User user) {
+        List<String> name = new ArrayList<>();
+        List<Double> allWeight = new ArrayList<>();
         System.out.println("\n___Шоколад___: ");
-        for (int i = 0; i < chocolateGift.size(); i++)
-            System.out.println((i + 1) + ") " + chocolateGift.get(i));
+        chocolateGift.clear();
+        for (int i = 0; i < user.getPresent().size(); i++) {
+            if (user.getPresent().get(i) instanceof Chocolate)
+                chocolateGift.add(user.getPresent().get(i));
+        }
+        if (chocolateGift.isEmpty())
+            System.out.println("Шоколада нет");
+        else {
+            for(int i = 0; i <chocolateGift.size(); i++){
+                if(!name.contains(chocolateGift.get(i).getName())) {
+                    name.add(chocolateGift.get(i).getName());
+                    allWeight.add(chocolateGift.get(i).getAllWeightPresent());
+                }
+                else
+                {
+                    for(int u = 0; u<name.size();u++){
+                        if(name.get(u).equals(chocolateGift.get(i).getName())){
+                            allWeight.set(u, (allWeight.get(u)+chocolateGift.get(i).getAllWeightPresent()));
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < name.size(); i++)
+                System.out.println((i + 1) + ") " + name.get(i) + " " + allWeight.get(i) + "г");    }
     }
 
     @Override
-    public void delete(List<All> all,int i) {
-        all.remove(i);;
+    public void delete(List<All> all, int i) {
+        int u = 0;
+        for (All alls : all)
+            if (alls instanceof Chocolate) {
+                if (u == i) {
+                    all.remove(alls);
+                    break;
+                }
+                u++;
+            }
     }
 
     @Override
@@ -58,7 +106,7 @@ public class Chocolate extends All implements Serializable {
                 System.out.print("Введите номер печенья: ");
                 try {
                     number = sc.nextInt();
-                    if (number >= chocolate.size())
+                    if (number > chocolate.size())
                         System.out.println("Такого шоколада нет( Повторите ввод...");
                     else break;
                 } catch (InputMismatchException e) {
@@ -68,11 +116,11 @@ public class Chocolate extends All implements Serializable {
             }
             return number - 1;
         }
-        return 0;
+        return -1;
     }
 
     @Override
-    public double choose(List<All> all) {
+    public double choose(List<All> all, User user) {
         Scanner sc = new Scanner(System.in);
         int operation;
         int amount;
@@ -103,9 +151,10 @@ public class Chocolate extends All implements Serializable {
                     }
                 }
 
-                addGift(operation, chocolate.get(operation - 1));
+                addGift(operation, chocolate.get(operation - 1), user);
 
                 allWeihgt += (amount * chocolate.get(operation - 1).getWeight());
+                chocolate.get(operation - 1).setAllWeightPresent(allWeihgt);
 
                 System.out.println("Продолжить?\n 1)Да\n 2)Нет");
 
